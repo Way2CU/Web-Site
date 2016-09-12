@@ -1,3 +1,9 @@
 {
-    "site_title": "Site title"
+    "site_title": "Way2CU",
+    "menu_home": "Home",
+    "menu_services": "Our services",
+    "menu_clients": "Our clients",
+    "menu_portfolio": "Portfolio",
+    "menu_about": "About us",
+    "menu_contact": "Contact us"
 }

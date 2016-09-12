@@ -1,0 +1,130 @@
+/**
+ * Header Style Sheet
+ * Way2CU Site
+ *
+ * Copyright (c) 2016. by Way2CU, http://way2cu.com
+ * Authors:Tal Reznic
+ */
+
+header {
+	text-align: center;
+	background-image: url(../images/header-background.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: 1920px 1080px;
+	min-height: 1080px;
+	color: @color_background;
+	position: relative;
+}
+
+header nav a {
+	display: inline-block;
+	vertical-align: middle;
+	text-decoration: none;
+	color: @color_text;
+	padding: 1.5em 2em;
+	line-height: 100%;
+	transition: all 0.3s;
+	border: 3px solid transparent;
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
+}
+
+header nav a:before {
+	content: '';
+	position: absolute;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: fade(@color_background, 20%);
+	transition: all 0.3s;
+	z-index: -1;
+}
+
+header nav a:hover:before {
+	top: 0;
+}
+
+header nav a:hover {
+	border-top-color: @color_background;
+}
+
+header > img {
+	position: fixed;
+	top: 70px;
+	left: 50%;
+	transform: translatex(-50%);
+}
+
+header article {
+	padding-top: calc(70px + 200px);
+	margin-bottom: 2em;
+	position: relative;
+}
+
+header article h2 {
+	margin: 0;
+	font-weight: 400;
+	font-size: 3em;
+	text-shadow: 0px 0px 8px fade(@color_text, 80%);
+}
+
+header > a {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0em 2em;
+	padding: 1.5em 0em;
+	text-decoration: none;
+	color: @color_text;
+	border: 1px solid @color_background;
+	background-color: fade(@color_background, 20%);
+	position: relative;
+	overflow: hidden;
+	transition: all 0.3s;
+	line-height: 100%;
+	width: 200px;
+	z-index: 0;
+}
+
+header > a:hover {
+	color: @color_green;
+}
+
+header > a:before {
+	content: "";
+	position: absolute;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: @color_background;
+	transition: all 0.3s;
+	z-index: -1;
+}
+
+header > a:hover:before {
+	top: 0;
+}
+
+header span.arrow {
+	position: absolute;
+	bottom: 15em;
+	left: 50%;
+	transform: translatex(-50%) translatez(0);
+	animation: bounce .6s infinite;
+	animation-direction: alternate;
+	animation-timing-function: ease-in-out;
+}
+
+header span.arrow img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@keyframes bounce {
+	from{bottom: 15em}
+	to{bottom: 16em}
+}

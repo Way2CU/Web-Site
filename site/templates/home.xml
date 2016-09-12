@@ -9,7 +9,58 @@
 		</head>
 
 		<body>
-			<h1>It works!</h1>
+			<header id="home">
+				<nav>
+					<a href="#home">
+						<cms:text constant="menu_home"/>
+					</a>
+					<a href="#services">
+						<cms:text constant="menu_services"/>
+					</a>
+					<a href="#clients">
+						<cms:text constant="menu_clients"/>
+					</a>
+					<a href="#portfolio">
+						<cms:text constant="menu_portfolio"/>
+					</a>
+					<a href="#about">
+						<cms:text constant="menu_about"/>
+					</a>
+					<a href="#contact">
+						<cms:text constant="menu_contact"/>
+					</a>
+				</nav>
+				<!-- Way2CU black logo -->
+				<img 
+					src="_BASEURL.'/site/images/logo-black.svg'"
+					alt="Way2CU black logo"
+					cms:eval="src"
+					/>
+				<!-- Introduction articles -->
+				<cms:module
+					name="articles"
+					action="show"
+					text_id="introduction"
+					template="stock/article_generic.xml"
+					>
+					<param name="title" value=""/>
+				</cms:module>
+				<a href="contact">
+					<cms:text constant="menu_contact"/>
+				</a>
+				<a href="about">
+					<cms:text constant="menu_about"/>
+				</a>
+				<!-- arrow -->
+				<span class="arrow">
+					<cms:text constant="label_scroll"/>
+					<img 
+						src="_BASEURL.'/site/images/icon-arrow.svg'"
+						alt="arrow_down"
+						cms:eval="src"
+						/>
+				</span>
+			</header>
 		</body>
 	</html>
 </document>
