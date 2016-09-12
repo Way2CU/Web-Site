@@ -116,6 +116,7 @@ section#clients div.slider a.next {
 	border-left: 2px solid @color_bright_grey;
 	transform: translatey(-50%) rotate(45deg);
 	z-index: 10;
+	transition: all 0.3s;
 }
 
 section#clients div.slider a.previous {
@@ -124,4 +125,9 @@ section#clients div.slider a.previous {
 	border: none;
 	border-top: 2px solid @color_bright_grey;
 	border-right: 2px solid @color_bright_grey;
+}
+
+section#clients div.slider a.previous:hover,
+section#clients div.slider a.next:hover {
+	border-color: @color_blue;
 }
