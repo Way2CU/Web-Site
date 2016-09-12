@@ -1,0 +1,70 @@
+/**
+ * Content Style Sheet
+ * Way2CU Site
+ *
+ * Copyright (c) 2016. by Way2CU, http://way2cu.com
+ * Authors:Tal Reznic
+ */
+
+section#services {
+	padding: 0 calc(~'(100% - 1200px)' / 2);
+	text-align: center;
+	position: relative;
+}
+
+section#services h2 {
+	color: @color_blue;
+}
+
+section#services ul.features {
+	margin: 0;
+	padding: 0;
+	padding-top: 238px;
+	list-style-type: none;
+	background-image: url(../images/lines.svg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: 795px 242px;
+	position: relative;
+}
+
+section#services ul.features li {
+	display: inline-block;
+	vertical-align: top;
+	padding: 0em 2em;
+	box-sizing: border-box;
+	background-color: @color_background;
+	width: 33.3%;
+}
+
+section#services ul.features li span {
+	display: inline-block;
+	padding: 2em;
+	border-radius: 50%;
+	border: 1px solid @color_bright_blue;
+	transition: all 0.3s;
+}
+
+section#services ul.features li:hover span {
+	border-color: @color_blue;
+}
+
+section#services ul.features li span svg {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 3em;
+	height: 3em;
+	fill: @color_bright_blue;
+	transition: all 0.3s;
+}
+
+section#services ul.features li:hover span svg {
+	transform: scale(1.2);
+}
+
+section#services ul.features li h4 {
+	margin: 0;
+	color: @color_blue;
+	font-weight: 400;
+}

@@ -13,11 +13,13 @@
 	<li class="stock feature">
 		<!-- Sprite image -->
 		<cms:if condition="isset($template['sprite'])">
-			<cms:svg
-				file="$template['sprite']"
-				symbol="$params['text_id']"
-				cms:eval="file,symbol"
-				/>
+			<span>
+				<cms:svg
+					file="$template['sprite']"
+					symbol="$params['text_id']"
+					cms:eval="file,symbol"
+					/>
+			</span>
 		</cms:if>
 
 		<!-- Title -->

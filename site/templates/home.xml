@@ -61,6 +61,28 @@
 						/>
 				</span>
 			</header>
+
+			<!-- Services section -->
+			<section id="services">
+				<img 
+					src="_BASEURL.'/site/images/logo-color.svg'"
+					alt="Way2CU black logo"
+					cms:eval="src"
+					/>
+				<h2><cms:text constant="menu_services"/></h2>
+				<!-- features -->
+				<ul class="features">
+					<cms:module
+						name="articles"
+						action="show_list"
+						group="services"
+						template="stock/features_generic.xml"
+						>
+						<param name="sprite" value="site-sprite.svg"/>
+						<param name="title" value=""/>
+					</cms:module>
+				</ul>
+			</section>
 		</body>
 	</html>
 </document>
