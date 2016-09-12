@@ -6,14 +6,25 @@
  * Authors:Tal Reznic
  */
 
+section#clients,
 section#services {
 	padding: 0 calc(~'(100% - 1200px)' / 2);
 	text-align: center;
 	position: relative;
 }
 
+section#clients {
+	padding: 2em calc(~'(100% - 1200px)' / 2);
+}
+
+section#clients h2,
 section#services h2 {
 	color: @color_blue;
+	font-weight: 400;
+}
+
+section#clients h2 {
+	margin-bottom: 0;
 }
 
 section#services ul.features {
@@ -67,4 +78,50 @@ section#services ul.features li h4 {
 	margin: 0;
 	color: @color_blue;
 	font-weight: 400;
+}
+
+/**
+ * Clients slider
+ */
+section#clients div.slider {
+	margin-left: auto;
+	margin-right: auto;
+	height: 150px;
+	border: 2px solid @color_light_grey;
+	position: relative;
+	overflow: hidden;
+}
+
+section#clients div.slider a.image {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: -100%;
+	transform :translatey(-50%);
+	transition: all 0.3s;
+}
+
+section#clients div.slider a.image.transit {
+	transition: none;
+}
+
+section#clients div.slider a.previous,
+section#clients div.slider a.next {
+	position: absolute;
+	top: 50%;
+	left: 1em;
+	width: 3em;
+	height: 3em;
+	border-bottom: 2px solid @color_bright_grey;
+	border-left: 2px solid @color_bright_grey;
+	transform: translatey(-50%) rotate(45deg);
+	z-index: 10;
+}
+
+section#clients div.slider a.previous {
+	left: auto;
+	right: 1em;
+	border: none;
+	border-top: 2px solid @color_bright_grey;
+	border-right: 2px solid @color_bright_grey;
 }
