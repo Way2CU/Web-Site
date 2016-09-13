@@ -1,4 +1,4 @@
-# Caracal-Site Way2cu-Site.
+# Official site.
 
 ## License
 
