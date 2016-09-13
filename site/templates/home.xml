@@ -208,6 +208,15 @@
 					</a>
 				</div>
 			</section>
+
+			<!-- Bottom section of the site -->
+			<footer>
+				<cms:template file="stock/copyright.xml">
+					<param name="holder" value="copyright_holder"/>
+					<param name="text" value="copyright_text"/>
+					<param name="light" value=""/>
+				</cms:template>
+			</footer>
 		</body>
 	</html>
 </document>
