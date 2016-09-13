@@ -6,6 +6,8 @@
  * Authors:Tal Reznic
  */
 
+section#about,
+section#mobile,
 section#portfolio,
 section#clients,
 section#services {
@@ -14,15 +16,24 @@ section#services {
 	position: relative;
 }
 
+section#about,
+section#mobile,
 section#portfolio,
 section#clients {
 	padding: 4em calc(~'(100% - 1200px)' / 2);
 }
 
+section#about {
+	padding: 4em calc(~'(100% - 800px)' / 2);
+}
+
+section#about,
 section#portfolio {
 	background-color: @color_light_grey;
 }
 
+section#about h2,
+section#mobile h2,
 section#portfolio h2,
 section#clients h2,
 section#services h2 {
@@ -31,7 +42,15 @@ section#services h2 {
 	font-weight: 400;
 }
 
+section#mobile h2 {
+	padding-bottom: 1em;
+}
+
 section#clients h2 {
+	margin-bottom: 0;
+}
+
+section#about p:last-of-type {
 	margin-bottom: 0;
 }
 
@@ -275,4 +294,24 @@ section#portfolio div.controls a.previous {
 section#portfolio div.controls a.next:hover,
 section#portfolio div.controls a.previous:hover {
 	border-color: @color_blue;
+}
+
+section#mobile article {
+	text-align: left;
+	padding-left: 1em;
+	padding-right: 800px;
+	background-image:
+		url(../images/mobile-friendly-logo.svg),
+		url(../images/mobile-friendly.jpg);
+	background-repeat: no-repeat;
+	background-position: calc(~'50% - 400px') bottom, right top;
+	background-size: 250px 100px, 736px 481px;
+	min-height: 481px;
+}
+
+html[dir="rtl"] section#mobile article {
+	text-align: right;
+	background-position: left center;
+	padding-left: 800px;
+	padding-right: 0;
 }

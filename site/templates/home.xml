@@ -129,6 +129,28 @@
 					<a href="javascript:void(0)" class="next"></a>
 				</div>
 			</section>
+
+			<!-- section mobile friendly -->
+			<section id="mobile">
+				<h2><cms:text constant="title_mobile"/></h2>
+				<cms:module
+					name="articles"
+					action="show"
+					text_id="mobile_friendly"
+					template="stock/article_generic.xml"
+					/>
+			</section>
+
+			<!-- section about us -->
+			<section id="about">
+				<h2><cms:text constant="menu_about"/></h2>
+				<cms:module
+					name="articles"
+					action="show"
+					text_id="about"
+					template="stock/article_generic.xml"
+					/>
+			</section>
 		</body>
 	</html>
 </document>
