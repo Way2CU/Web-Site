@@ -1,0 +1,11 @@
+<document>
+	<li>
+		<a
+			href="javascript:void(0)" 
+			data-gallery="$params['id']"
+			cms:eval="data-gallery"
+			>
+			<cms:var param="name" multilanguage="yes"/>
+		</a>
+	</li>
+</document>

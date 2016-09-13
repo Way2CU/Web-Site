@@ -6,6 +6,7 @@
  * Authors:Tal Reznic
  */
 
+section#portfolio,
 section#clients,
 section#services {
 	padding: 0 calc(~'(100% - 1200px)' / 2);
@@ -13,12 +14,19 @@ section#services {
 	position: relative;
 }
 
+section#portfolio,
 section#clients {
-	padding: 2em calc(~'(100% - 1200px)' / 2);
+	padding: 4em calc(~'(100% - 1200px)' / 2);
 }
 
+section#portfolio {
+	background-color: @color_light_grey;
+}
+
+section#portfolio h2,
 section#clients h2,
 section#services h2 {
+	margin: 0;
 	color: @color_blue;
 	font-weight: 400;
 }
@@ -101,6 +109,7 @@ section#clients div.slider a.image {
 	transition: all 0.3s;
 }
 
+section#portfolio div.gallery a.portfolio.transit,
 section#clients div.slider a.image.transit {
 	transition: none;
 }
@@ -129,5 +138,141 @@ section#clients div.slider a.previous {
 
 section#clients div.slider a.previous:hover,
 section#clients div.slider a.next:hover {
+	border-color: @color_blue;
+}
+
+/**
+ * Portfolio gallery
+ */
+section#portfolio ul {
+	margin: 0;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	padding: 0;
+	list-style-type: none;
+}
+
+section#portfolio ul li {
+	display: inline-block;
+	vertical-align: top;
+	line-height: 100%;
+	margin: 0em 1em;
+}
+
+section#portfolio ul li a {
+	display: block;
+	text-decoration: none;
+	padding: 1em 0em;
+	color: @color_text;
+	border: 1px solid @color_bright_grey;
+	width: 150px;
+	transition: all 0.3s;
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
+	transition: all 0.3s;
+}
+
+section#portfolio ul li a.active,
+section#portfolio ul li a:hover {
+	color: @color_background;
+}
+
+section#portfolio ul li a:before {
+	content: "";
+	position: absolute;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: @color_bright_grey;
+	transition: all 0.3s;
+	z-index: -1;
+}
+
+section#portfolio ul li a.active:before,
+section#portfolio ul li a:hover:before {
+	top: 0;
+}
+
+section#portfolio div.gallery {
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+}
+
+section#portfolio div.gallery a.portfolio {
+	position: absolute;
+	top: 50%;
+	transform: translatey(-50%);
+	text-decoration: none;
+	color: @color_text;
+	height: 350px;
+	box-shadow: 0px 0px 8px fade(@color_text, 20%);
+	overflow: hidden;
+	visibility: hidden;
+	transition: all 0.3s;
+}
+
+section#portfolio div.gallery a.portfolio:hover div.information {
+	background-color: @color_blue;
+	color: @color_background;
+}
+
+section#portfolio div.gallery a.portfolio.visible {
+	visibility: visible;
+}
+
+section#portfolio div.gallery a.portfolio div.information {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 1em 2em;
+	background-color: @color_background;
+	line-height: 100%;
+	transition: all 0.3s;
+}
+
+section#portfolio div.gallery a.portfolio div.information h4 {
+	margin: 0;
+	padding-bottom: 0.5em;
+	font-weight: 400;
+}
+
+section#portfolio div.gallery a.portfolio div.information p {
+	margin: 0;
+}
+
+section#portfolio div.controls {
+	position: relative;
+	padding: 1em 0em;
+}
+
+section#portfolio div.controls span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+section#portfolio div.controls a.next,
+section#portfolio div.controls a.previous {
+	display: inline-block;
+	vertical-align: middle;
+	width: 2em;
+	height: 2em;
+	border-top: 2px solid @color_bright_grey;
+	border-right: 2px solid @color_bright_grey;
+	transform: rotate(45deg);
+	transition: all 0.3s;
+}
+
+section#portfolio div.controls a.previous {
+	border: none;
+	border-bottom: 2px solid @color_bright_grey;
+	border-left: 2px solid @color_bright_grey;
+}
+
+section#portfolio div.controls a.next:hover,
+section#portfolio div.controls a.previous:hover {
 	border-color: @color_blue;
 }

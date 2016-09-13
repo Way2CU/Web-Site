@@ -5,7 +5,7 @@
 	<html lang="$language" dir="$language_rtl ? 'rtl' : 'ltr'" cms:eval="lang,dir">
 		<head>
 			<title><cms:text constant="site_title"/></title>
-			<cms:collection include="page_control,animation_chain"/>
+			<cms:collection include="page_control,animation_chain,communicator"/>
 			<cms:module name="head_tag" action="print_tag"/>
 		</head>
 
@@ -89,7 +89,7 @@
 			<section id="clients">
 				<h2><cms:text constant="menu_clients"/></h2>
 				<p><cms:text constant="sub_title_clients"/></p>
-				
+
 				<div class="slider">
 					<a href="javascript:void(0)" class="previous"></a>
 					<cms:module
@@ -98,6 +98,34 @@
 						group="clients"
 						template="parts/client_images.xml"
 						/>
+					<a href="javascript:void(0)" class="next"></a>
+				</div>
+			</section>
+
+			<!-- Portfolio section -->
+			<section id="portfolio">
+				<h2><cms:text constant="menu_portfolio"/></h2>
+				<ul>
+					<cms:module
+						name="gallery"
+						action="show_group_list"
+						container="way2cu_galleries"
+						template="parts/title_gallery.xml"
+						/>
+				</ul>
+				<div class="gallery">
+					<cms:module
+						name="gallery"
+						action="show_image_list"
+						group="websites"
+						template="parts/gallery_image.xml"
+						/>
+				</div>
+				<div class="controls">
+					<a href="javascript:void(0)" class="previous"></a>
+					<span>
+						<cms:text constant="label_controls"/>
+					</span>
 					<a href="javascript:void(0)" class="next"></a>
 				</div>
 			</section>
