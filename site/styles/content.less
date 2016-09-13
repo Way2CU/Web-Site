@@ -16,6 +16,7 @@ section#services {
 	position: relative;
 }
 
+section#contact,
 section#about,
 section#mobile,
 section#portfolio,
@@ -32,6 +33,12 @@ section#portfolio {
 	background-color: @color_light_grey;
 }
 
+section#contact {
+	background-color: @color_dark_grey;
+	color: @color_background;
+}
+
+section#contact h2,
 section#about h2,
 section#mobile h2,
 section#portfolio h2,
@@ -40,6 +47,12 @@ section#services h2 {
 	margin: 0;
 	color: @color_blue;
 	font-weight: 400;
+	text-align: center;
+}
+
+section#contact h2 {
+	color: @color_background;
+	padding-bottom: 1em;
 }
 
 section#mobile h2 {
@@ -314,4 +327,117 @@ html[dir="rtl"] section#mobile article {
 	background-position: left center;
 	padding-left: 800px;
 	padding-right: 0;
+}
+
+/**
+ * Contact section
+ */
+section#contact form,
+section#contact div.contact {
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 50%;
+}
+
+section#contact div.contact {
+	padding-left: 10%;
+}
+
+html[dir="rtl"] section#contact div.contact {
+	padding-right: 10%;
+	padding-left: 0;
+}
+
+section#contact form label {
+	display: block;
+	width: 80%;
+	margin-bottom: 1em;
+}
+
+section#contact form label span {
+	display: block;
+}
+
+section#contact form label textarea,
+section#contact form label input {
+	display: block;
+	padding: 0.7em 0.2em;
+	box-sizing: border-box;
+	border: 2px solid transparent;
+	width: 100%;
+	transition: all 0.3s;
+}
+
+section#contact form label textarea:focus,
+section#contact form label input:focus,
+section#contact form label textarea:hover,
+section#contact form label input:hover {
+	border-color: @color_bright_blue;
+}
+
+section#contact form label textarea {
+	resize: vertical;
+}
+
+section#contact form div.controls {
+	width: 80%;
+}
+
+section#contact form div.controls button {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em 2.5em;
+	border: none;
+	background-color: @color_green;
+	color: @color_background;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+section#contact form div.controls button:hover {
+	background-color: @color_bright_blue;
+}
+
+
+section#contact div.contact a,
+section#contact div.contact span {
+	display: block;
+}
+
+section#contact div.contact a {
+	margin-bottom: 2em;
+	padding: 0.5em 0em;
+	text-decoration: none;
+	color: @color_green;
+	transition: all 0.3s;
+}
+
+section#contact div.contact a:hover {
+	color: @color_bright_blue;
+}
+
+section#contact div.contact a.social {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 2em;
+}
+
+section#contact div.contact a.social:first-of-type {
+	margin-left: 0em;
+}
+
+section#contact div.contact a.social svg {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 2.5em;
+	height: 2.5em;
+	fill: @color_background;
+	transition: all 0.3s;
+}
+
+section#contact div.contact a.social:hover svg {
+	fill: @color_bright_blue;
 }

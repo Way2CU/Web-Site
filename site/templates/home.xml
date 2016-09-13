@@ -46,10 +46,10 @@
 					>
 					<param name="title" value=""/>
 				</cms:module>
-				<a href="contact">
+				<a href="#contact">
 					<cms:text constant="menu_contact"/>
 				</a>
-				<a href="about">
+				<a href="#about">
 					<cms:text constant="menu_about"/>
 				</a>
 				<!-- arrow -->
@@ -150,6 +150,63 @@
 					text_id="about"
 					template="stock/article_generic.xml"
 					/>
+			</section>
+
+			<!-- section contact -->
+			<section id="contact">
+				<h2><cms:text constant="menu_contact"/></h2>
+				<cms:module
+					name="contact_form"
+					action="show"
+					text_id="contact"
+					/>
+				<div class="contact">
+					<!-- mail -->
+					<span>
+						<cms:text constant="label_mail"/>
+					</span>
+					<a
+						href="'mailto:'.urlencode(Language::getText('mail'))"
+						cms:eval="href"
+						>
+						<cms:text constant="mail"/>
+					</a>
+					<!-- phone -->
+					<span>
+						<cms:text constant="label_phone"/>
+					</span>
+					<a
+						href="'tel:'.urlencode(Language::getText('phone'))"
+						cms:eval="href"
+						>
+						<cms:text constant="phone"/>
+					</a>
+					<!-- social -->
+					<span>
+						<cms:text constant="label_social"/>
+					</span>
+					<a 
+						href="google_plus" 
+						class="social" 
+						cms:constant="href"
+						>
+						<cms:svg file="site-sprite.svg" symbol="google"/>
+					</a>
+					<a 
+						href="facebook" 
+						class="social" 
+						cms:constant="href"
+						>
+						<cms:svg file="site-sprite.svg" symbol="facebook"/>
+					</a>
+					<a 
+						href="linkedin" 
+						class="social" 
+						cms:constant="href"
+						>
+						<cms:svg file="site-sprite.svg" symbol="youtube"/>
+					</a>
+				</div>
 			</section>
 		</body>
 	</html>
