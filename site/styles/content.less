@@ -46,7 +46,6 @@ section#clients h2,
 section#services h2 {
 	margin: 0;
 	color: @color_blue;
-	font-weight: 400;
 	text-align: center;
 }
 
@@ -63,8 +62,16 @@ section#clients h2 {
 	margin-bottom: 0;
 }
 
+section#clients > p {
+	margin: 0;
+}
+
 section#about p:last-of-type {
 	margin-bottom: 0;
+}
+
+section#services > img {
+	padding: 1em 0em;
 }
 
 section#services ul.features {
@@ -91,6 +98,7 @@ section#services ul.features li {
 section#services ul.features li span {
 	display: inline-block;
 	padding: 2em;
+	margin-bottom: 0.5em;
 	border-radius: 50%;
 	border: 1px solid @color_bright_blue;
 	transition: all 0.3s;
@@ -117,7 +125,10 @@ section#services ul.features li:hover span svg {
 section#services ul.features li h4 {
 	margin: 0;
 	color: @color_blue;
-	font-weight: 400;
+}
+
+section#services ul.features li p {
+	margin: 0;
 }
 
 /**
@@ -127,7 +138,6 @@ section#clients div.slider {
 	margin-left: auto;
 	margin-right: auto;
 	height: 150px;
-	border: 2px solid @color_light_grey;
 	position: relative;
 	overflow: hidden;
 }
@@ -179,7 +189,6 @@ section#clients div.slider a.next:hover {
 section#portfolio ul {
 	margin: 0;
 	margin-top: 2em;
-	margin-bottom: 2em;
 	padding: 0;
 	list-style-type: none;
 }
@@ -269,7 +278,6 @@ section#portfolio div.gallery a.portfolio div.information {
 section#portfolio div.gallery a.portfolio div.information h4 {
 	margin: 0;
 	padding-bottom: 0.5em;
-	font-weight: 400;
 }
 
 section#portfolio div.gallery a.portfolio div.information p {
@@ -399,7 +407,6 @@ section#contact form div.controls button {
 section#contact form div.controls button:hover {
 	background-color: @color_bright_blue;
 }
-
 
 section#contact div.contact a,
 section#contact div.contact span {
