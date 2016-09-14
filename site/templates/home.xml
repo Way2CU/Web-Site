@@ -37,6 +37,7 @@
 				<img 
 					src="_BASEURL.'/site/images/logo-black.svg'"
 					alt="Way2CU black logo"
+					class="logo"
 					cms:eval="src"
 					/>
 				<!-- Introduction articles -->
@@ -72,6 +73,7 @@
 				<img 
 					src="_BASEURL.'/site/images/logo-color.svg'"
 					alt="Way2CU black logo"
+					class="logo"
 					cms:eval="src"
 					/>
 				<h2><cms:text constant="menu_services"/></h2>
