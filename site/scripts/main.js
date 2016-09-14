@@ -49,14 +49,14 @@ Site.is_mobile = function() {
  * Function called when document and images have been completely loaded.
  */
 Site.on_load = function() {
-	if (Site.is_mobile()) 
-		Site.mobile_menu = new Caracal.MobileMenu();
 
-	// create lightbox object for client logos images
-	Site.logo_lightbox = new LightBox('a.image', false, false, true);
+	if(!Site.is_mobile()) {
+		// create lightbox object for client logos images
+		Site.logo_lightbox = new LightBox('a.image', false, false, true);
 
-	// create lightbox object for portfolio gallery images
-	Site.portfolio_lightbox = new LightBox('a.portfolio', false, false, true);
+		// create lightbox object for portfolio gallery images
+		Site.portfolio_lightbox = new LightBox('a.portfolio', false, false, true);
+	}
 
 	// create slider for clients gallery
 	Site.client_gallery = new Caracal.Gallery.Slider();
