@@ -12,26 +12,28 @@
 
 		<body>
 			<header id="home">
-				<nav>
-					<a href="#home">
-						<cms:text constant="menu_home"/>
-					</a>
-					<a href="#services">
-						<cms:text constant="menu_services"/>
-					</a>
-					<a href="#clients">
-						<cms:text constant="menu_clients"/>
-					</a>
-					<a href="#portfolio">
-						<cms:text constant="menu_portfolio"/>
-					</a>
-					<a href="#about">
-						<cms:text constant="menu_about"/>
-					</a>
-					<a href="#contact">
-						<cms:text constant="menu_contact"/>
-					</a>
-				</nav>
+				<cms:desktop>
+					<nav>
+						<a href="#home">
+							<cms:text constant="menu_home"/>
+						</a>
+						<a href="#services">
+							<cms:text constant="menu_services"/>
+						</a>
+						<a href="#clients">
+							<cms:text constant="menu_clients"/>
+						</a>
+						<a href="#portfolio">
+							<cms:text constant="menu_portfolio"/>
+						</a>
+						<a href="#about">
+							<cms:text constant="menu_about"/>
+						</a>
+						<a href="#contact">
+							<cms:text constant="menu_contact"/>
+						</a>
+					</nav>
+				</cms:desktop>
 				<!-- Way2CU black logo -->
 				<img 
 					src="_BASEURL.'/site/images/logo-black.svg'"
@@ -54,14 +56,16 @@
 					<cms:text constant="menu_about"/>
 				</a>
 				<!-- arrow -->
-				<span class="arrow">
-					<cms:text constant="label_scroll"/>
-					<img 
-						src="_BASEURL.'/site/images/icon-arrow.svg'"
-						alt="arrow_down"
-						cms:eval="src"
-						/>
-				</span>
+				<cms:desktop>
+					<span class="arrow">
+						<cms:text constant="label_scroll"/>
+						<img 
+							src="_BASEURL.'/site/images/icon-arrow.svg'"
+							alt="arrow_down"
+							cms:eval="src"
+							/>
+					</span>
+				</cms:desktop>
 			</header>
 
 			<!-- Services section -->

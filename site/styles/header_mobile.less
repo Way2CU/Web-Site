@@ -1,0 +1,62 @@
+/**
+ * Header mobile Style Sheet
+ * Way2CU site
+ *
+ * Copyright (c) 2016. by Way2CU, http://way2cu.com
+ * Authors:Tal Reznic
+ */
+
+header {
+	text-align: center;
+	background-image: url(../images/mobile-header.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: 100% auto;
+	color: @color_background;
+	height: calc(~'100vw * 1.68');
+	position: relative;
+}
+
+header > img {
+	display: block;
+	padding: 1em 0em;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+header article {
+	position: relative;
+	padding: 0em 1em;
+}
+
+header article h2 {
+	margin: 0;
+	font-weight: 400;
+	text-shadow: 1px 1px 3px fade(@color_text, 80%);
+}
+
+header article p {
+	margin-top: 0;
+}
+
+header > a {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em 0em;
+	text-decoration: none;
+	color: @color_background;
+	border: 1px solid @color_background;
+	text-shadow: 1px 1px 3px fade(@color_text, 80%);
+	background-color: fade(@color_text, 20%);
+	font-weight: 700;
+	position: relative;
+	line-height: 100%;
+	width: 200px;
+	z-index: 0;
+}
+
+header > a:first-of-type {
+	margin-bottom: 0.5em;
+}
