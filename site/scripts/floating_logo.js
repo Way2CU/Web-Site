@@ -9,7 +9,7 @@ function FloatingLogo(menu, trigger_element) {
 	var self = this;
 
 	self.menu = menu;
-	self.position = trigger_element.offset().top - 100;
+	self.position = trigger_element.offset().top -100;
 	self.active = false;
 	  
 	/**
@@ -48,5 +48,7 @@ function FloatingLogo(menu, trigger_element) {
 }
 
 $(function(){
-	Site.floating_logo = new FloatingLogo($('header'), $('section#services'));
+	if(!Site.is_mobile()){
+		Site.floating_logo = new FloatingLogo($('header'), $('section#services img'));
+	}
 });
