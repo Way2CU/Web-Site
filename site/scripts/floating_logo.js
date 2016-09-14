@@ -5,7 +5,7 @@ var Site = Site || {};
  * @param object menu               jQuery object
  * @param object trigger_element    jQuery object
  */
-function FloatingMenu(menu, trigger_element) {
+function FloatingLogo(menu, trigger_element) {
 	var self = this;
 
 	self.menu = menu;
@@ -48,5 +48,5 @@ function FloatingMenu(menu, trigger_element) {
 }
 
 $(function(){
-	Site.floating_logo = new FloatingMenu($('header'), $('section#services'));
+	Site.floating_logo = new FloatingLogo($('header'), $('section#services'));
 });
