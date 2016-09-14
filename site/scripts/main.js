@@ -49,7 +49,7 @@ Site.is_mobile = function() {
  * Function called when document and images have been completely loaded.
  */
 Site.on_load = function() {
-	if (Site.is_mobile())
+	if (Site.is_mobile()) 
 		Site.mobile_menu = new Caracal.MobileMenu();
 
 	// create lightbox object for client logos images
@@ -82,6 +82,11 @@ Site.on_load = function() {
 		.images.set_center(true)
 		.images.set_spacing(20);
 	Site.portfolio_gallery.images.update();
+
+	if(Site.is_mobile()) {
+		Site.client_gallery.images.set_visible_count(1);
+		Site.portfolio_gallery.images.set_visible_count(1);
+	}
 
 	/**
 	 * Constructor function for gallery images 

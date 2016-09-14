@@ -159,12 +159,14 @@
 
 			<!-- section contact -->
 			<section id="contact">
-				<h2><cms:text constant="menu_contact"/></h2>
-				<cms:module
-					name="contact_form"
-					action="show"
-					text_id="contact"
-					/>
+					<h2><cms:text constant="menu_contact"/></h2>
+				<cms:desktop>
+					<cms:module
+						name="contact_form"
+						action="show"
+						text_id="contact"
+						/>
+				</cms:desktop>
 				<div class="contact">
 					<!-- mail -->
 					<span>
@@ -212,6 +214,13 @@
 						<cms:svg file="site-sprite.svg" symbol="youtube"/>
 					</a>
 				</div>
+				<cms:mobile>
+					<cms:module
+						name="contact_form"
+						action="show"
+						text_id="contact"
+						/>
+				</cms:mobile>
 			</section>
 
 			<!-- Bottom section of the site -->

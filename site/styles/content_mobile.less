@@ -1,41 +1,31 @@
 /**
- * Content Style Sheet
- * Way2CU Site
+ * Content mobile Style Sheet
+ * Way2CU site
  *
  * Copyright (c) 2016. by Way2CU, http://way2cu.com
  * Authors:Tal Reznic
  */
 
+section#contact,
 section#about,
 section#mobile,
 section#portfolio,
 section#clients,
 section#services {
-	padding: 0 calc(~'(100% - 1200px)' / 2);
+	padding: 1em 0.5em;
 	text-align: center;
 	position: relative;
 }
 
 section#contact,
-section#about,
-section#mobile,
-section#portfolio,
 section#clients {
-	padding: 4em calc(~'(100% - 1200px)' / 2);
-}
-
-section#about {
-	padding: 4em calc(~'(100% - 800px)' / 2);
+	background-color: @color_dark_grey;
+	color: @color_background;
 }
 
 section#about,
 section#portfolio {
 	background-color: @color_light_grey;
-}
-
-section#contact {
-	background-color: @color_dark_grey;
-	color: @color_background;
 }
 
 section#contact h2,
@@ -49,58 +39,42 @@ section#services h2 {
 	text-align: center;
 }
 
+section#services h2 {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+section#contact h2 {
+	margin-bottom: 0.5em;
+}
+
+section#clients h2,
 section#contact h2 {
 	color: @color_background;
-	padding-bottom: 1em;
-}
-
-section#mobile h2 {
-	padding-bottom: 1em;
-}
-
-section#clients h2 {
-	margin-bottom: 0;
-}
-
-section#clients > p {
-	margin: 0;
-}
-
-section#about p:last-of-type {
-	margin-bottom: 0;
 }
 
 section#services > img {
-	opacity: 0;
-	visibility: hidden;
-	padding: 1em 0em;
-}
-
-body.active section#services > img {
-	opacity: 1;
-	visibility: visible;
-	transition: all 0.3s;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
 }
 
 section#services ul.features {
 	margin: 0;
 	padding: 0;
-	padding-top: 238px;
 	list-style-type: none;
-	background-image: url(../images/lines.svg);
-	background-repeat: no-repeat;
-	background-position: center top;
-	background-size: 795px 242px;
 	position: relative;
 }
 
 section#services ul.features li {
-	display: inline-block;
-	vertical-align: top;
-	padding: 0em 2em;
-	box-sizing: border-box;
+	display: block;
+	margin-bottom: 1em;
 	background-color: @color_background;
-	width: 33.3%;
+}
+
+section#services ul.features li:last-of-type {
+	margin-bottom: 0;
 }
 
 section#services ul.features li span {
@@ -126,10 +100,6 @@ section#services ul.features li span svg {
 	transition: all 0.3s;
 }
 
-section#services ul.features li:hover span svg {
-	transform: scale(1.2);
-}
-
 section#services ul.features li h4 {
 	margin: 0;
 	color: @color_blue;
@@ -142,10 +112,14 @@ section#services ul.features li p {
 /**
  * Clients slider
  */
+section#clients > p {
+	margin-top: 0;
+}
+
 section#clients div.slider {
 	margin-left: auto;
 	margin-right: auto;
-	height: 150px;
+	height: 100px;
 	position: relative;
 	overflow: hidden;
 }
@@ -157,6 +131,13 @@ section#clients div.slider a.image {
 	left: -100%;
 	transform :translatey(-50%);
 	transition: all 0.3s;
+	opacity: 0;
+	visibility: hidden;
+}
+
+section#clients div.slider a.image.visible {
+	opacity: 1;
+	visibility: visible;
 }
 
 section#portfolio div.gallery a.portfolio.transit,
@@ -196,16 +177,19 @@ section#clients div.slider a.next:hover {
  */
 section#portfolio ul {
 	margin: 0;
-	margin-top: 2em;
 	padding: 0;
 	list-style-type: none;
 }
 
 section#portfolio ul li {
-	display: inline-block;
-	vertical-align: top;
+	display: block;
 	line-height: 100%;
-	margin: 0em 1em;
+	width: 100%;
+	margin-bottom: 0.5em;
+}
+
+section#portfolio ul li:last-of-type {
+	margin-bottom: 0;
 }
 
 section#portfolio ul li a {
@@ -214,7 +198,6 @@ section#portfolio ul li a {
 	padding: 1em 0em;
 	color: @color_text;
 	border: 1px solid @color_bright_grey;
-	width: 150px;
 	transition: all 0.3s;
 	position: relative;
 	overflow: hidden;
@@ -222,32 +205,15 @@ section#portfolio ul li a {
 	transition: all 0.3s;
 }
 
-section#portfolio ul li a.active,
-section#portfolio ul li a:hover {
+section#portfolio ul li a.active {
+	background-color: @color_blue;
 	color: @color_background;
-}
-
-section#portfolio ul li a:before {
-	content: "";
-	position: absolute;
-	top: -100%;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: @color_bright_grey;
-	transition: all 0.3s;
-	z-index: -1;
-}
-
-section#portfolio ul li a.active:before,
-section#portfolio ul li a:hover:before {
-	top: 0;
 }
 
 section#portfolio div.gallery {
 	margin-left: auto;
 	margin-right: auto;
-	width: 1200px;
+	width: 100%;
 	height: 400px;
 	position: relative;
 	overflow: hidden;
@@ -280,11 +246,6 @@ section#portfolio div.gallery a.portfolio {
 	transition: all 0.3s;
 }
 
-section#portfolio div.gallery a.portfolio:hover div.information {
-	background-color: @color_blue;
-	color: @color_background;
-}
-
 section#portfolio div.gallery a.portfolio.visible {
 	visibility: visible;
 }
@@ -295,7 +256,8 @@ section#portfolio div.gallery a.portfolio div.information {
 	left: 0;
 	right: 0;
 	padding: 1em 2em;
-	background-color: @color_background;
+	color: @color_background;
+	background-color: @color_blue;
 	line-height: 100%;
 	transition: all 0.3s;
 }
@@ -342,49 +304,81 @@ section#portfolio div.controls a.previous:hover {
 	border-color: @color_blue;
 }
 
-section#mobile article {
+section#mobile {
 	text-align: left;
-	padding-left: 1em;
-	padding-right: 800px;
+	padding-bottom: calc(~'100vw * 0.65');
 	background-image:
-		url(../images/mobile-friendly-logo.svg),
 		url(../images/mobile-friendly.jpg);
 	background-repeat: no-repeat;
-	background-position: calc(~'50% - 400px') bottom, right top;
-	background-size: 250px 100px, 736px 481px;
-	min-height: 481px;
+	background-position: center bottom;
+	background-size: 100% auto;
 }
 
-html[dir="rtl"] section#mobile article {
+section#mobile article {
+	text-align: left;
+	padding-bottom: 5em;
+	margin-bottom: 2em;
+	background-image:
+		url(../images/mobile-friendly-logo.svg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 50% auto;
+}
+
+section#about article {
+	text-align: left;
+}
+
+html[dir="rtl"] section#about article {
 	text-align: right;
-	background-position: left center;
-	padding-left: 800px;
-	padding-right: 0;
 }
 
-/**
- * Contact section
- */
+section#about article p:last-of-type {
+	margin-bottom: 0;
+}
+
 section#contact form,
 section#contact div.contact {
-	display: inline-block;
-	vertical-align: top;
+	display: block;
 	box-sizing: border-box;
-	width: 50%;
 }
 
-section#contact div.contact {
-	padding-left: 10%;
+section#contact form {
+	text-align: left;
 }
 
-html[dir="rtl"] section#contact div.contact {
-	padding-right: 10%;
-	padding-left: 0;
+section#contact div.contact a,
+section#contact div.contact span {
+	display: block;
+}
+
+section#contact div.contact a {
+	margin-bottom: 1em;
+	padding: 1em 0em;
+	text-decoration: none;
+	color: @color_green;
+	transition: all 0.3s;
+}
+
+section#contact div.contact a.social {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0.5em;
+	margin-left: 0.5em;
+}
+
+section#contact div.contact a.social svg {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 2.5em;
+	height: 2.5em;
+	fill: @color_background;
+	transition: all 0.3s;
 }
 
 section#contact form label {
 	display: block;
-	width: 80%;
 	margin-bottom: 1em;
 }
 
@@ -402,19 +396,8 @@ section#contact form label input {
 	transition: all 0.3s;
 }
 
-section#contact form label textarea:focus,
-section#contact form label input:focus,
-section#contact form label textarea:hover,
-section#contact form label input:hover {
-	border-color: @color_bright_blue;
-}
-
 section#contact form label textarea {
 	resize: vertical;
-}
-
-section#contact form div.controls {
-	width: 80%;
 }
 
 section#contact form div.controls button {
@@ -431,45 +414,4 @@ section#contact form div.controls button {
 
 section#contact form div.controls button:hover {
 	background-color: @color_bright_blue;
-}
-
-section#contact div.contact a,
-section#contact div.contact span {
-	display: block;
-}
-
-section#contact div.contact a {
-	margin-bottom: 2em;
-	padding: 0.5em 0em;
-	text-decoration: none;
-	color: @color_green;
-	transition: all 0.3s;
-}
-
-section#contact div.contact a:hover {
-	color: @color_bright_blue;
-}
-
-section#contact div.contact a.social {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 2em;
-}
-
-section#contact div.contact a.social:first-of-type {
-	margin-left: 0em;
-}
-
-section#contact div.contact a.social svg {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 2.5em;
-	height: 2.5em;
-	fill: @color_background;
-	transition: all 0.3s;
-}
-
-section#contact div.contact a.social:hover svg {
-	fill: @color_bright_blue;
 }
