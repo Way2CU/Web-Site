@@ -16,6 +16,10 @@ section#services {
 	position: relative;
 }
 
+section#services {
+	padding-top: 270px;
+}
+
 section#contact,
 section#about,
 section#mobile,
@@ -71,15 +75,22 @@ section#about p:last-of-type {
 }
 
 section#services > img {
+	position: fixed;
+	top: 90px;
+	left: 50%;
+	transform: translatex(-50%);
 	opacity: 0;
-	visibility: hidden;
-	padding: 1em 0em;
+	z-index: 10;
+	transition: opacity 0.6s;
 }
 
 body.active section#services > img {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translatex(-50%);
 	opacity: 1;
-	visibility: visible;
-	transition: all 0.3s;
+	transition: opacity 0.6s;
 }
 
 section#services ul.features {
