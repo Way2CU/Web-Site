@@ -49,6 +49,6 @@ function FloatingLogo(menu, trigger_element) {
 
 $(function(){
 	if(!Site.is_mobile()){
-		Site.floating_logo = new FloatingLogo($('header'), $('section#services'));
+		Site.floating_logo = new FloatingLogo($('header img'), $('section#services'));
 	}
 });
