@@ -152,19 +152,37 @@ section#clients div.slider a.next {
 	left: 1em;
 	width: 3em;
 	height: 3em;
-	border-bottom: 2px solid @color_bright_grey;
-	border-left: 2px solid @color_bright_grey;
-	transform: translatey(-50%) rotate(45deg);
+	transform: translatey(-50%);
 	z-index: 10;
 	transition: all 0.3s;
+}
+
+section#clients div.slider a.next:before,
+section#clients div.slider a.previous:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 2em;
+	height: 2em;
+	border-top: 2px solid @color_bright_grey;
+	border-right: 2px solid @color_bright_grey;
+	transform: translatey(-50%) rotate(45deg);
+	transition: all 0.3s;
+}
+
+section#clients div.slider a.next:before {
+	border: none;
+	border-bottom: 2px solid @color_bright_grey;
+	border-left: 2px solid @color_bright_grey;
+	right: auto;
+	left: 0;
 }
 
 section#clients div.slider a.previous {
 	left: auto;
 	right: 1em;
 	border: none;
-	border-top: 2px solid @color_bright_grey;
-	border-right: 2px solid @color_bright_grey;
 }
 
 section#clients div.slider a.previous:hover,
@@ -285,23 +303,31 @@ section#portfolio div.controls a.next,
 section#portfolio div.controls a.previous {
 	display: inline-block;
 	vertical-align: middle;
+	width: 3em;
+	height: 3em;
+	position: relative;
+}
+
+section#portfolio div.controls a.next:before,
+section#portfolio div.controls a.previous:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
 	width: 2em;
 	height: 2em;
 	border-top: 2px solid @color_bright_grey;
 	border-right: 2px solid @color_bright_grey;
-	transform: rotate(45deg);
+	transform: translatey(-50%) rotate(45deg);
 	transition: all 0.3s;
 }
 
-section#portfolio div.controls a.previous {
+section#portfolio div.controls a.previous:before {
 	border: none;
 	border-bottom: 2px solid @color_bright_grey;
 	border-left: 2px solid @color_bright_grey;
-}
-
-section#portfolio div.controls a.next:hover,
-section#portfolio div.controls a.previous:hover {
-	border-color: @color_blue;
+	left: auto;
+	right: 0;
 }
 
 section#mobile {
