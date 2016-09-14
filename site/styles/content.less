@@ -71,7 +71,15 @@ section#about p:last-of-type {
 }
 
 section#services > img {
+	opacity: 0;
+	visibility: hidden;
 	padding: 1em 0em;
+}
+
+body.active section#services > img {
+	opacity: 1;
+	visibility: visible;
+	transition: all 0.3s;
 }
 
 section#services ul.features {

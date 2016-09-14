@@ -53,25 +53,31 @@ header nav a:hover {
 	color: @color_blue;
 }
 
-// header > img {
-// 	position: fixed;
-// 	top: 90px;
-// 	left: 50%;
-// 	transform: translatex(-50%);
-// }
-
 header > img {
+	position: fixed;
+	top: 90px;
+	left: 50%;
+	transform: translatex(-50%);
+	opacity: 1;
+	transition: all 0.3s;
+}
+
+header.active > img {
 	display: block;
+	position: relative;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 1em 0em;
+	opacity: 0;
+	transition: all 0.3s;
+	transition-delay: 0.3s;
 }
 
-// header article {
-// 	padding-top: calc(100px + 200px);
-// 	margin-bottom: 2em;
-// 	position: relative;
-// }
+header article {
+	padding-top: calc(100px + 200px);
+	margin-bottom: 2em;
+	position: relative;
+}
 
 header article {
 	margin-bottom: 2em;
