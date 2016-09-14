@@ -46,17 +46,55 @@ Site.is_mobile = function() {
 };
 
 /**
+ * Handler for window scroll event
+ */
+Site.handle_scroll = function(event) {
+	var self = $(this);
+	self.active = false;
+	self.elements = $('img.logo');
+	self.trigger_element = $('header img.logo');
+	self.start_position = self.trigger_element.offset().top;
+	self.end_position = $('section#services').offset().top -100;
+	self.height = self.end_position - self.start_position;
+
+	self.elements
+		.css('position', 'absolute')
+		.css('top', '0px')
+		.css('opacity', '1');
+
+	if($(window).scrollTop() < self.end_position && !self.active) {
+		self.elements
+			.css('position', 'fixed')
+			.css('top', '90px');
+
+		if($(window).scrollTop() > self.end_position - 300) {
+			self.trigger_element.css('opacity', '0.8');
+		}
+
+		if($(window).scrollTop() > self.end_position - 250) {
+			self.trigger_element.css('opacity', '0.6');
+		}
+
+		if($(window).scrollTop() > self.end_position - 200) {
+			self.trigger_element.css('opacity', '0.4');
+		}
+
+		if($(window).scrollTop() > self.end_position - 150) {
+			self.trigger_element.css('opacity', '0.2');
+		}
+
+		if($(window).scrollTop() > self.end_position - 100) {
+			self.trigger_element.css('opacity', '0.1');
+		}
+		self.active = true;
+	}
+	
+}
+
+/**
  * Function called when document and images have been completely loaded.
  */
 Site.on_load = function() {
-
-	if(!Site.is_mobile()) {
-		// create lightbox object for client logos images
-		Site.logo_lightbox = new LightBox('a.image', false, false, true);
-
-		// create lightbox object for portfolio gallery images
-		Site.portfolio_lightbox = new LightBox('a.portfolio', false, false, true);
-	}
 
 	// create slider for clients gallery
 	Site.client_gallery = new Caracal.Gallery.Slider();
@@ -82,6 +120,14 @@ Site.on_load = function() {
 		.images.set_center(true)
 		.images.set_spacing(20);
 	Site.portfolio_gallery.images.update();
+
+	if(!Site.is_mobile()) {
+		// create lightbox object for client logos images
+		Site.logo_lightbox = new LightBox('a.image', false, false, true);
+
+		// create lightbox object for portfolio gallery images
+		Site.portfolio_lightbox = new LightBox('a.portfolio', false, false, true);
+	}
 
 	if(Site.is_mobile()) {
 		Site.client_gallery.images.set_visible_count(1);
@@ -137,10 +183,15 @@ Site.on_load = function() {
 		var item = $(this);
 		gallery_list.not(item).removeClass('active')
 		var gallery_id = item.data('gallery');
-		console.log(gallery_id);
 		Site.gallery_loader.load_by_group_id(gallery_id);
 		item.addClass('active');
 	});
+
+	/**
+	 * create handler for scroll event
+	 */
+	$(window).on('scroll', Site.handle_scroll);
+
 };
 
 
