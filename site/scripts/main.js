@@ -50,7 +50,8 @@ Site.is_mobile = function() {
  */
 Site.handle_scroll = function(event) {
 	var scroll_position = window.scrollY;
-	var animated_area = Site.end_position - 600;
+
+	var size = 800;
 	var opacity = null;
 
 	if(scroll_position < Site.start_position) {
@@ -69,7 +70,7 @@ Site.handle_scroll = function(event) {
 		});
 
 	} else {
-		opacity = (scroll_position - animated_area) / animated_area;
+		opacity = (scroll_position - Site.start_position) / size;
 		Site.logo_elements.css({
 			'position': 'fixed',
 			'top': '90px'
