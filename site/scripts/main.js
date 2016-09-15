@@ -49,13 +49,11 @@ Site.is_mobile = function() {
  * Handler for window scroll event
  */
 Site.handle_scroll = function(event) {
-	var scroll_position = $(this).scrollTop();
-	var start_position = Site.logo_elements.offset().top;
-	var end_position = $('section#services').offset().top - 100;
-	var animated_area = end_position - 600;
+	var scroll_position = window.scrollY;
+	var animated_area = Site.end_position - 600;
 	var opacity = null;
 
-	if(scroll_position < start_position) {
+	if(scroll_position < Site.start_position) {
 		opacity = 0;
 		Site.trigger_element.css({
 			'position': 'fixed',
@@ -63,7 +61,7 @@ Site.handle_scroll = function(event) {
 		});
 	}
 
-	if(scroll_position > end_position) {
+	if(scroll_position > Site.end_position) {
 		opacity = 1;
 		Site.logo_elements.css({
 			'position': 'absolute',
@@ -126,6 +124,8 @@ Site.on_load = function() {
 
 		Site.trigger_element = $('section#services img.logo');
 		Site.trigger_element.css('opacity', 0);
+		Site.start_position = Site.logo_elements.offset().top;
+		Site.end_position = $('section#services').offset().top - 100;
 		// create handler for scroll event
 		$(window).on('scroll', Site.handle_scroll);
 	}
