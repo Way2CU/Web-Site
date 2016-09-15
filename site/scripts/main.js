@@ -55,9 +55,7 @@ Site.handle_scroll = function(event) {
 	self.scroll_position = $(window).scrollTop();
 	self.elements = $('img.logo');
 	self.trigger_element = $('header img.logo');
-	self.start_position = self.trigger_element.offset().top;
 	self.end_position = $('section#services').offset().top -100;
-	self.height = self.end_position - self.start_position;
 	self.step = 50;
 	self.opacity = 1;
 
@@ -75,7 +73,6 @@ Site.handle_scroll = function(event) {
 
 		if(self.scroll_position > (self.end_position - 700)) {
 			for(var i = 0; i < self.scroll_position; i += self.step) {
-				console
 				self.trigger_element.css('opacity', self.opacity);
 				self.opacity -= 0.05;
 			}
@@ -120,6 +117,9 @@ Site.on_load = function() {
 
 		// create lightbox object for portfolio gallery images
 		Site.portfolio_lightbox = new LightBox('a.portfolio', false, false, true);
+
+		// create handler for scroll event
+		$(window).on('scroll', Site.handle_scroll);
 	}
 
 	if(Site.is_mobile()) {
@@ -179,12 +179,6 @@ Site.on_load = function() {
 		Site.gallery_loader.load_by_group_id(gallery_id);
 		item.addClass('active');
 	});
-
-	/**
-	 * create handler for scroll event
-	 */
-	$(window).on('scroll', Site.handle_scroll);
-
 };
 
 
