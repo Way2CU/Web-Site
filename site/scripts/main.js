@@ -59,9 +59,8 @@ Site.handle_scroll = function(event) {
 			'position': 'fixed',
 			'top': '90px'
 		});
-	}
 
-	if(scroll_position > Site.end_position) {
+	} else if (scroll_position > Site.end_position) {
 		opacity = 1;
 		Site.logo_elements.css({
 			'position': 'absolute',
