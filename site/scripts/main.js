@@ -50,45 +50,38 @@ Site.is_mobile = function() {
  */
 Site.handle_scroll = function(event) {
 	var self = $(this);
+
 	self.active = false;
+	self.scroll_position = $(window).scrollTop();
 	self.elements = $('img.logo');
 	self.trigger_element = $('header img.logo');
 	self.start_position = self.trigger_element.offset().top;
 	self.end_position = $('section#services').offset().top -100;
 	self.height = self.end_position - self.start_position;
+	self.step = 50;
+	self.opacity = 1;
 
-	self.elements
-		.css('position', 'absolute')
-		.css('top', '0px')
-		.css('opacity', '1');
+	// initliaze animated elements styles
+	self.elements.css({
+		'position': 'absolute',
+		'top': '0px',
+		'opacity': '1'
+	});
 
-	if($(window).scrollTop() < self.end_position && !self.active) {
+	if(self.scroll_position < self.end_position && !self.active) {
 		self.elements
 			.css('position', 'fixed')
 			.css('top', '90px');
 
-		if($(window).scrollTop() > self.end_position - 300) {
-			self.trigger_element.css('opacity', '0.8');
-		}
-
-		if($(window).scrollTop() > self.end_position - 250) {
-			self.trigger_element.css('opacity', '0.6');
-		}
-
-		if($(window).scrollTop() > self.end_position - 200) {
-			self.trigger_element.css('opacity', '0.4');
-		}
-
-		if($(window).scrollTop() > self.end_position - 150) {
-			self.trigger_element.css('opacity', '0.2');
-		}
-
-		if($(window).scrollTop() > self.end_position - 100) {
-			self.trigger_element.css('opacity', '0.1');
+		if(self.scroll_position > (self.end_position - 700)) {
+			for(var i = 0; i < self.scroll_position; i += self.step) {
+				console
+				self.trigger_element.css('opacity', self.opacity);
+				self.opacity -= 0.05;
+			}
 		}
 		self.active = true;
 	}
-	
 }
 
 /**
