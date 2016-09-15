@@ -49,37 +49,36 @@ Site.is_mobile = function() {
  * Handler for window scroll event
  */
 Site.handle_scroll = function(event) {
-	var self = $(this);
+	var scroll_position = $(this).scrollTop();
+	var start_position = Site.logo_elements.offset().top;
+	var end_position = $('section#services').offset().top - 100;
+	var animated_area = end_position - 600;
+	var opacity = null;
 
-	self.active = false;
-	self.scroll_position = $(window).scrollTop();
-	self.elements = $('img.logo');
-	self.trigger_element = $('header img.logo');
-	self.end_position = $('section#services').offset().top -100;
-	self.step = 50;
-	self.opacity = 1;
-
-	// initliaze animated elements styles
-	self.elements.css({
-		'position': 'absolute',
-		'top': '0px',
-		'opacity': '1'
-	});
-
-	if(self.scroll_position < self.end_position && !self.active) {
-		self.elements.css({
+	if(scroll_position < start_position) {
+		opacity = 0;
+		Site.trigger_element.css({
 			'position': 'fixed',
 			'top': '90px'
 		});
-
-		if(self.scroll_position > (self.end_position - 700)) {
-			for(var i = 0; i < self.scroll_position; i += self.step) {
-				self.trigger_element.css('opacity', self.opacity);
-				self.opacity -= 0.05;
-			}
-		}
-		self.active = true;
 	}
+
+	if(scroll_position > end_position) {
+		opacity = 1;
+		Site.logo_elements.css({
+			'position': 'absolute',
+			'top': '0px'
+		});
+
+	} else {
+		opacity = (scroll_position - animated_area) / animated_area;
+		Site.logo_elements.css({
+			'position': 'fixed',
+			'top': '90px'
+		});
+	}
+
+	Site.trigger_element.css('opacity', opacity);
 }
 
 /**
@@ -97,8 +96,8 @@ Site.on_load = function() {
 		.images.add('div.slider a.image')
 		.images.set_visible_count(5)
 		.images.set_center(true)
-		.images.set_spacing(20);
-	Site.client_gallery.images.update();
+		.images.set_spacing(20)
+		.images.update();
 
 	// create slider for portfolio gallery
 	Site.portfolio_gallery = new Caracal.Gallery.Slider();
@@ -109,8 +108,8 @@ Site.on_load = function() {
 		.images.add('div.gallery a.portfolio')
 		.images.set_visible_count(3)
 		.images.set_center(true)
-		.images.set_spacing(20);
-	Site.portfolio_gallery.images.update();
+		.images.set_spacing(20)
+		.images.update();
 
 	if(!Site.is_mobile()) {
 		// create lightbox object for client logos images
@@ -119,6 +118,14 @@ Site.on_load = function() {
 		// create lightbox object for portfolio gallery images
 		Site.portfolio_lightbox = new LightBox('a.portfolio', false, false, true);
 
+		Site.logo_elements = $('img.logo');
+		Site.logo_elements.css({
+			'position': 'fixed',
+			'top': '90px'
+		});
+
+		Site.trigger_element = $('section#services img.logo');
+		Site.trigger_element.css('opacity', 0);
 		// create handler for scroll event
 		$(window).on('scroll', Site.handle_scroll);
 	}
@@ -156,6 +163,7 @@ Site.on_load = function() {
 	 */
 	function image_loaded() {
 		Site.portfolio_lightbox = new LightBox('a.portfolio', false, false, true);
+		Site.portfolio_gallery.images.update();
 	}
 
 	/**
