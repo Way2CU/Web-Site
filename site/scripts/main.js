@@ -67,9 +67,10 @@ Site.handle_scroll = function(event) {
 	});
 
 	if(self.scroll_position < self.end_position && !self.active) {
-		self.elements
-			.css('position', 'fixed')
-			.css('top', '90px');
+		self.elements.css({
+			'position': 'fixed',
+			'top': '90px'
+		});
 
 		if(self.scroll_position > (self.end_position - 700)) {
 			for(var i = 0; i < self.scroll_position; i += self.step) {
