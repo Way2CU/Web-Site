@@ -50,7 +50,6 @@ Site.is_mobile = function() {
  */
 Site.handle_scroll = function(event) {
 	var scroll_position = window.scrollY;
-
 	var size = 800;
 	var opacity = null;
 
