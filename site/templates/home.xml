@@ -52,6 +52,16 @@
 				<a href="#contact">
 					<cms:text constant="menu_contact"/>
 				</a>
+
+				<a href="callbox" class="callbox" cms:constant="href">
+					<img
+						src="_BASEURL.'/site/images/callbox-icon.svg'"
+						alt="callbox-logo"
+						cms:eval="src"
+						/>
+					<cms:text constant="label_callbox"/>
+				</a>
+
 				<a href="#about">
 					<cms:text constant="menu_about"/>
 				</a>
