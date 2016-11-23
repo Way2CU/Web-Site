@@ -1,7 +1,7 @@
 ---
 site:
   domain: way2cu.com
-  # subdomain: test
+  subdomain: new
   # alias: domain.com
   root: httpdocs
   username: twigy
