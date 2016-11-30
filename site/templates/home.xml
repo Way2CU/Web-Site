@@ -34,7 +34,7 @@
 					</nav>
 				</cms:desktop>
 				<!-- Way2CU black logo -->
-				<img 
+				<img
 					src="_BASEURL.'/site/images/logo-black.svg'"
 					alt="Way2CU black logo"
 					class="logo"
@@ -69,7 +69,7 @@
 				<cms:desktop>
 					<span class="arrow">
 						<cms:text constant="label_scroll"/>
-						<img 
+						<img
 							src="_BASEURL.'/site/images/icon-arrow.svg'"
 							alt="arrow_down"
 							cms:eval="src"
@@ -80,7 +80,7 @@
 
 			<!-- Services section -->
 			<section id="services">
-				<img 
+				<img
 					src="_BASEURL.'/site/images/logo-color.svg'"
 					alt="Way2CU black logo"
 					class="logo"
@@ -184,7 +184,7 @@
 						<cms:text constant="label_mail"/>
 					</span>
 					<a
-						href="'mailto:'.urlencode(Language::getText('mail'))"
+						href="'mailto:'.urlencode(Language::get_Text('mail'))"
 						cms:eval="href"
 						>
 						<cms:text constant="mail"/>
@@ -194,7 +194,7 @@
 						<cms:text constant="label_phone"/>
 					</span>
 					<a
-						href="'tel:'.urlencode(Language::getText('phone'))"
+						href="'tel:'.urlencode(Language::get_Text('phone'))"
 						cms:eval="href"
 						>
 						<cms:text constant="phone"/>
@@ -203,23 +203,23 @@
 					<span>
 						<cms:text constant="label_social"/>
 					</span>
-					<a 
-						href="google_plus" 
-						class="social" 
+					<a
+						href="google_plus"
+						class="social"
 						cms:constant="href"
 						>
 						<cms:svg file="site-sprite.svg" symbol="google"/>
 					</a>
-					<a 
-						href="facebook" 
-						class="social" 
+					<a
+						href="facebook"
+						class="social"
 						cms:constant="href"
 						>
 						<cms:svg file="site-sprite.svg" symbol="facebook"/>
 					</a>
-					<a 
-						href="linkedin" 
-						class="social" 
+					<a
+						href="linkedin"
+						class="social"
 						cms:constant="href"
 						>
 						<cms:svg file="site-sprite.svg" symbol="linkedin"/>
