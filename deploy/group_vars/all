@@ -3,9 +3,9 @@ site:
   domain: way2cu.com
   subdomain: new
   # alias: domain.com
-  root: httpdocs
+  root: new
   username: twigy
-  caracal_branch: release
+  caracal_branch: v0.2.x
   # ip_address: 0.0.0.0
   # owner: Some Person
   # plan: Unlimited
