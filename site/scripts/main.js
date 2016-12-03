@@ -116,15 +116,19 @@ Site.on_load = function() {
 		Site.portfolio_lightbox = new LightBox('a.portfolio', false, false, true);
 
 		Site.logo_elements = $('img.logo');
-		Site.logo_elements.css({
-			'position': 'fixed',
-			'top': '90px'
-		});
+
+		if(window.scrollY < Site.end_position) {
+			Site.logo_elements.css({
+				'position': 'fixed',
+				'top': '90px'
+			});
+		}
 
 		Site.trigger_element = $('section#services img.logo');
 		Site.trigger_element.css('opacity', 0);
 		Site.start_position = Site.logo_elements.offset().top;
 		Site.end_position = $('section#services').offset().top - 100;
+
 		// create handler for scroll event
 		$(window).on('scroll', Site.handle_scroll);
 	}
@@ -135,7 +139,7 @@ Site.on_load = function() {
 	}
 
 	/**
-	 * Constructor function for gallery images 
+	 * Constructor function for gallery images
 	 */
 	function make_image(data) {
 		var link = $('<a>');
