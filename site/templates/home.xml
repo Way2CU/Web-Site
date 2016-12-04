@@ -31,10 +31,25 @@
 						<a href="#contact">
 							<cms:text constant="menu_contact"/>
 						</a>
+						<cms:module
+							name="language_menu"
+							action="print"
+							template="parts/language_links.xml"
+							/>
 					</nav>
 				</cms:desktop>
-				<!-- Way2CU black logo -->
-				<img 
+
+				<cms:mobile>
+					<div class="language">
+						<cms:module
+							name="language_menu"
+							action="print"
+							template="parts/language_links.xml"
+							/>
+					</div>
+				</cms:mobile>
+
+				<img
 					src="_BASEURL.'/site/images/logo-black.svg'"
 					alt="Way2CU black logo"
 					class="logo"
@@ -69,7 +84,7 @@
 				<cms:desktop>
 					<span class="arrow">
 						<cms:text constant="label_scroll"/>
-						<img 
+						<img
 							src="_BASEURL.'/site/images/icon-arrow.svg'"
 							alt="arrow_down"
 							cms:eval="src"
@@ -80,13 +95,20 @@
 
 			<!-- Services section -->
 			<section id="services">
-				<img 
+				<img
 					src="_BASEURL.'/site/images/logo-color.svg'"
 					alt="Way2CU black logo"
 					class="logo"
 					cms:eval="src"
 					/>
-				<h2><cms:text constant="menu_services"/></h2>
+
+				<cms:module
+					name="articles"
+					action="show_group"
+					text_id="services"
+					template="parts/article_group.xml"
+					/>
+
 				<!-- features -->
 				<ul class="features">
 					<cms:module
@@ -103,8 +125,12 @@
 
 			<!-- section#clients -->
 			<section id="clients">
-				<h2><cms:text constant="menu_clients"/></h2>
-				<p><cms:text constant="sub_title_clients"/></p>
+				<cms:module
+					name="gallery"
+					action="show_group"
+					text_id="clients"
+					template="parts/gallery_group.xml"
+					/>
 
 				<div class="slider">
 					<a href="javascript:void(0)" class="previous"></a>
@@ -120,7 +146,12 @@
 
 			<!-- Portfolio section -->
 			<section id="portfolio">
-				<h2><cms:text constant="menu_portfolio"/></h2>
+				<cms:module
+					name="gallery"
+					action="show_container"
+					text_id="way2cu_galleries"
+					template="parts/gallery_group.xml"
+					/>
 				<ul>
 					<cms:module
 						name="gallery"
@@ -148,24 +179,24 @@
 
 			<!-- section mobile friendly -->
 			<section id="mobile">
-				<h2><cms:text constant="title_mobile"/></h2>
 				<cms:module
 					name="articles"
 					action="show"
 					text_id="mobile_friendly"
-					template="stock/article_generic.xml"
+					template="parts/article.xml"
 					/>
 			</section>
 
 			<!-- section about us -->
 			<section id="about">
-				<h2><cms:text constant="menu_about"/></h2>
 				<cms:module
 					name="articles"
 					action="show"
 					text_id="about"
 					template="stock/article_generic.xml"
-					/>
+					>
+					<param name="title" value=""/>
+				</cms:module>
 			</section>
 
 			<!-- section contact -->
@@ -184,7 +215,7 @@
 						<cms:text constant="label_mail"/>
 					</span>
 					<a
-						href="'mailto:'.urlencode(Language::getText('mail'))"
+						href="'mailto:'.urlencode(Language::get_Text('mail'))"
 						cms:eval="href"
 						>
 						<cms:text constant="mail"/>
@@ -194,7 +225,7 @@
 						<cms:text constant="label_phone"/>
 					</span>
 					<a
-						href="'tel:'.urlencode(Language::getText('phone'))"
+						href="'tel:'.urlencode(Language::get_Text('phone'))"
 						cms:eval="href"
 						>
 						<cms:text constant="phone"/>
@@ -203,23 +234,26 @@
 					<span>
 						<cms:text constant="label_social"/>
 					</span>
-					<a 
-						href="google_plus" 
-						class="social" 
+					<a
+						target="_blank"
+						href="google_plus"
+						class="social"
 						cms:constant="href"
 						>
 						<cms:svg file="site-sprite.svg" symbol="google"/>
 					</a>
-					<a 
-						href="facebook" 
-						class="social" 
+					<a
+						target="_blank"
+						href="facebook"
+						class="social"
 						cms:constant="href"
 						>
 						<cms:svg file="site-sprite.svg" symbol="facebook"/>
 					</a>
-					<a 
-						href="linkedin" 
-						class="social" 
+					<a
+						target="_blank"
+						href="linkedin"
+						class="social"
 						cms:constant="href"
 						>
 						<cms:svg file="site-sprite.svg" symbol="linkedin"/>

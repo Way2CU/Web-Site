@@ -346,6 +346,11 @@ section#portfolio div.controls a.previous {
 	position: relative;
 }
 
+html[dir="rtl"] section#portfolio div.controls a.next,
+html[dir="rtl"] section#portfolio div.controls a.previous {
+	transform: rotate(180deg);
+}
+
 section#portfolio div.controls a.next:before,
 section#portfolio div.controls a.previous:before {
 	content: "";
@@ -485,6 +490,11 @@ section#contact div.contact a.social {
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: 2em;
+}
+
+html[dir="rtl"] section#contact div.contact a.social {
+	margin-right: 0;
+	margin-left: 2em;
 }
 
 section#contact div.contact a.social:first-of-type {
