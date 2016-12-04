@@ -31,9 +31,24 @@
 						<a href="#contact">
 							<cms:text constant="menu_contact"/>
 						</a>
+						<cms:module
+							name="language_menu"
+							action="print"
+							template="parts/language_links.xml"
+							/>
 					</nav>
 				</cms:desktop>
-				<!-- Way2CU black logo -->
+
+				<cms:mobile>
+					<div class="language">
+						<cms:module
+							name="language_menu"
+							action="print"
+							template="parts/language_links.xml"
+							/>
+					</div>
+				</cms:mobile>
+
 				<img
 					src="_BASEURL.'/site/images/logo-black.svg'"
 					alt="Way2CU black logo"
@@ -220,6 +235,7 @@
 						<cms:text constant="label_social"/>
 					</span>
 					<a
+						target="_blank"
 						href="google_plus"
 						class="social"
 						cms:constant="href"
@@ -227,6 +243,7 @@
 						<cms:svg file="site-sprite.svg" symbol="google"/>
 					</a>
 					<a
+						target="_blank"
 						href="facebook"
 						class="social"
 						cms:constant="href"
@@ -234,6 +251,7 @@
 						<cms:svg file="site-sprite.svg" symbol="facebook"/>
 					</a>
 					<a
+						target="_blank"
 						href="linkedin"
 						class="social"
 						cms:constant="href"
