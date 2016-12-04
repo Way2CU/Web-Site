@@ -86,7 +86,14 @@
 					class="logo"
 					cms:eval="src"
 					/>
-				<h2><cms:text constant="menu_services"/></h2>
+
+				<cms:module
+					name="articles"
+					action="show_group"
+					text_id="services"
+					template="parts/article_group.xml"
+					/>
+
 				<!-- features -->
 				<ul class="features">
 					<cms:module
@@ -103,8 +110,12 @@
 
 			<!-- section#clients -->
 			<section id="clients">
-				<h2><cms:text constant="menu_clients"/></h2>
-				<p><cms:text constant="sub_title_clients"/></p>
+				<cms:module
+					name="gallery"
+					action="show_group"
+					text_id="clients"
+					template="parts/gallery_group.xml"
+					/>
 
 				<div class="slider">
 					<a href="javascript:void(0)" class="previous"></a>
@@ -120,7 +131,12 @@
 
 			<!-- Portfolio section -->
 			<section id="portfolio">
-				<h2><cms:text constant="menu_portfolio"/></h2>
+				<cms:module
+					name="gallery"
+					action="show_container"
+					text_id="way2cu_galleries"
+					template="parts/gallery_group.xml"
+					/>
 				<ul>
 					<cms:module
 						name="gallery"
@@ -148,24 +164,24 @@
 
 			<!-- section mobile friendly -->
 			<section id="mobile">
-				<h2><cms:text constant="title_mobile"/></h2>
 				<cms:module
 					name="articles"
 					action="show"
 					text_id="mobile_friendly"
-					template="stock/article_generic.xml"
+					template="parts/article.xml"
 					/>
 			</section>
 
 			<!-- section about us -->
 			<section id="about">
-				<h2><cms:text constant="menu_about"/></h2>
 				<cms:module
 					name="articles"
 					action="show"
 					text_id="about"
 					template="stock/article_generic.xml"
-					/>
+					>
+					<param name="title" value=""/>
+				</cms:module>
 			</section>
 
 			<!-- section contact -->
