@@ -53,19 +53,17 @@ Site.handle_scroll = function(event) {
 	var size = 800;
 	var opacity = null;
 
-	if(scroll_position < Site.start_position) {
-		opacity = 0;
-		Site.trigger_element.css({
-			'position': 'fixed',
-			'top': '90px'
-		});
+	Site.trigger_element.css({
+		'position': 'fixed',
+		'top': '90px'
+	});
 
-	} else if(scroll_position > Site.end_position) {
-		opacity = 1;
-		Site.logo_elements.css({
-			'position': 'absolute',
-			'top': '0px'
-		});
+	if(scroll_position > Site.end_position) {
+	opacity = 1;
+	Site.logo_elements.css({
+		'position': 'absolute',
+		'top': '0px'
+	});
 
 	} else {
 		opacity = (scroll_position - Site.start_position) / size;
@@ -116,14 +114,6 @@ Site.on_load = function() {
 		Site.portfolio_lightbox = new LightBox('a.portfolio', false, false, true);
 
 		Site.logo_elements = $('img.logo');
-
-		if(window.scrollY < Site.end_position) {
-			Site.logo_elements.css({
-				'position': 'fixed',
-				'top': '90px'
-			});
-		}
-
 		Site.trigger_element = $('section#services img.logo');
 		Site.trigger_element.css('opacity', 0);
 		Site.start_position = Site.logo_elements.offset().top;
