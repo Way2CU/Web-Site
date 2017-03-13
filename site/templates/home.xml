@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE document SYSTEM "../units/schema/language.dtd">
 <document>
-	<cms:var name="_DOCTYPE"/>
 	<html lang="$language" dir="$language_rtl ? 'rtl' : 'ltr'" cms:eval="lang,dir">
 		<head>
 			<title><cms:text constant="site_title"/></title>
@@ -13,9 +12,6 @@
 			<header id="home">
 				<cms:desktop>
 					<nav>
-						<a href="#home">
-							<cms:text constant="menu_home"/>
-						</a>
 						<a href="#services">
 							<cms:text constant="menu_services"/>
 						</a>
@@ -31,30 +27,35 @@
 						<a href="#contact">
 							<cms:text constant="menu_contact"/>
 						</a>
+
+						<nav class="languages">
+							<cms:module
+								name="language_menu"
+								action="print"
+								template="parts/language_links.xml"
+								/>
+						</nav>
+					</nav>
+				</cms:desktop>
+
+				<cms:mobile>
+					<nav class="languages">
 						<cms:module
 							name="language_menu"
 							action="print"
 							template="parts/language_links.xml"
 							/>
 					</nav>
-				</cms:desktop>
-
-				<cms:mobile>
-					<div class="language">
-						<cms:module
-							name="language_menu"
-							action="print"
-							template="parts/language_links.xml"
-							/>
-					</div>
 				</cms:mobile>
 
 				<img
 					src="_BASEURL.'/site/images/logo-black.svg'"
-					alt="Way2CU black logo"
+					alt="site_title"
 					class="logo"
 					cms:eval="src"
+					cms:constant="alt"
 					/>
+
 				<!-- Introduction articles -->
 				<cms:module
 					name="articles"
@@ -64,6 +65,7 @@
 					>
 					<param name="title" value=""/>
 				</cms:module>
+
 				<a href="#contact">
 					<cms:text constant="menu_contact"/>
 				</a>
@@ -71,8 +73,9 @@
 				<a href="callbox" class="callbox" cms:constant="href">
 					<img
 						src="_BASEURL.'/site/images/callbox-icon.svg'"
-						alt="callbox-logo"
+						alt="callbox_title"
 						cms:eval="src"
+						cms:constant="alt"
 						/>
 					<cms:text constant="label_callbox"/>
 				</a>
@@ -80,7 +83,8 @@
 				<a href="#about">
 					<cms:text constant="menu_about"/>
 				</a>
-				<!-- arrow -->
+
+				<!-- Down pointing arrow -->
 				<cms:desktop>
 					<span class="arrow">
 						<cms:text constant="label_scroll"/>
@@ -97,9 +101,10 @@
 			<section id="services">
 				<img
 					src="_BASEURL.'/site/images/logo-color.svg'"
-					alt="Way2CU black logo"
+					alt="site_title"
 					class="logo"
 					cms:eval="src"
+					cms:constant="alt"
 					/>
 
 				<cms:module
@@ -109,7 +114,7 @@
 					template="parts/article_group.xml"
 					/>
 
-				<!-- features -->
+				<!-- Features -->
 				<ul class="features">
 					<cms:module
 						name="articles"
@@ -123,7 +128,7 @@
 				</ul>
 			</section>
 
-			<!-- section#clients -->
+			<!-- Client section -->
 			<section id="clients">
 				<cms:module
 					name="gallery"
@@ -152,6 +157,7 @@
 					text_id="way2cu_galleries"
 					template="parts/gallery_group.xml"
 					/>
+
 				<ul>
 					<cms:module
 						name="gallery"
@@ -160,6 +166,7 @@
 						template="parts/title_gallery.xml"
 						/>
 				</ul>
+
 				<div class="gallery">
 					<cms:module
 						name="gallery"
@@ -168,16 +175,15 @@
 						template="parts/gallery_image.xml"
 						/>
 				</div>
+
 				<div class="controls">
 					<a href="javascript:void(0)" class="previous"></a>
-					<span>
-						<cms:text constant="label_controls"/>
-					</span>
+					<span><cms:text constant="label_controls"/></span>
 					<a href="javascript:void(0)" class="next"></a>
 				</div>
 			</section>
 
-			<!-- section mobile friendly -->
+			<!-- Mobile friendly section -->
 			<section id="mobile">
 				<cms:module
 					name="articles"
@@ -187,7 +193,7 @@
 					/>
 			</section>
 
-			<!-- section about us -->
+			<!-- About us section -->
 			<section id="about">
 				<cms:module
 					name="articles"
@@ -199,9 +205,9 @@
 				</cms:module>
 			</section>
 
-			<!-- section contact -->
+			<!-- Contact us section -->
 			<section id="contact">
-					<h2><cms:text constant="menu_contact"/></h2>
+				<h2><cms:text constant="menu_contact"/></h2>
 				<cms:desktop>
 					<cms:module
 						name="contact_form"
@@ -209,31 +215,28 @@
 						text_id="contact"
 						/>
 				</cms:desktop>
+
 				<div class="contact">
-					<!-- mail -->
-					<span>
-						<cms:text constant="label_mail"/>
-					</span>
+					<!-- Email -->
+					<span><cms:text constant="label_mail"/></span>
 					<a
 						href="'mailto:'.urlencode(Language::get_Text('mail'))"
 						cms:eval="href"
 						>
 						<cms:text constant="mail"/>
 					</a>
-					<!-- phone -->
-					<span>
-						<cms:text constant="label_phone"/>
-					</span>
+
+					<!-- Phone -->
+					<span><cms:text constant="label_phone"/></span>
 					<a
 						href="'tel:'.urlencode(Language::get_Text('phone'))"
 						cms:eval="href"
 						>
 						<cms:text constant="phone"/>
 					</a>
-					<!-- social -->
-					<span>
-						<cms:text constant="label_social"/>
-					</span>
+
+					<!-- Social pages -->
+					<span><cms:text constant="label_social"/></span>
 					<a
 						target="_blank"
 						href="google_plus"
@@ -259,6 +262,7 @@
 						<cms:svg file="site-sprite.svg" symbol="linkedin"/>
 					</a>
 				</div>
+
 				<cms:mobile>
 					<cms:module
 						name="contact_form"

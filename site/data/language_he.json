@@ -1,5 +1,6 @@
 {
     "site_title": "Way2CU",
+    "callbox_title": "Callbox",
     "menu_home": "דף הבית",
     "menu_services": "השירותים שלנו",
     "menu_clients": "לקוחות",
@@ -17,6 +18,6 @@
     "google_plus": "https://plus.google.com/101003239891720800721",
     "facebook": "https://www.facebook.com/Way2cu/?fref=ts",
     "linkedin": "https://www.linkedin.com/company/2841373?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A2841373%2Cidx%3A2-1-2%2CtarId%3A1473754667632%2Ctas%3Away2cu",
-    "copyright_holder": "Copyright &copy; 2016. by <a href=\"http://way2cu.com\" target=\"_blank\">Way2CU</a>.",
+    "copyright_holder": "Copyright &copy; 2017. by <a href=\"http://way2cu.com\" target=\"_blank\">Way2CU</a>.",
     "copyright_text": "All rights reserved."
 }
