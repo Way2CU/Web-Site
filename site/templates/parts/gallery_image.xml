@@ -1,5 +1,5 @@
 <document>
-	<a 
+	<a
 		href="$params['image']"
 		class="portfolio"
 		cms:eval="href"
@@ -9,9 +9,9 @@
 			alt="$params['title'][$language]"
 			cms:eval="src,alt"
 			/>
-		<div class="information">
+<!-- 		<div class="information">
 			<h4><cms:var param="title" multilanguage="yes"/></h4>
 			<cms:markdown param="description" multilanguage="yes"/>
-		</div>
+		</div> -->
 	</a>
 </document>

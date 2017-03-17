@@ -82,6 +82,12 @@ section#services > img.logo {
 	opacity: 1;
 }
 
+section#services > img.logo.floating {
+	position: fixed;
+	top: 90px;
+	opacity: 0;
+}
+
 section#services ul.features {
 	margin: 0;
 	padding: 0;
@@ -157,6 +163,11 @@ section#clients div.slider a.image {
 	left: -100%;
 	transform :translatey(-50%);
 	transition: all 0.3s;
+}
+
+html[dir="rtl"] section#clients div.slider a.image {
+	left: auto;
+	right: -100%;
 }
 
 section#portfolio div.gallery a.portfolio.transit,
@@ -248,18 +259,21 @@ section#portfolio ul li a:hover {
 section#portfolio ul li a:before {
 	content: "";
 	position: absolute;
-	top: -100%;
+	top: 0;
 	left: 0;
+	bottom: 0;
+	right: 0;
 	width: 100%;
 	height: 100%;
 	background-color: @color_bright_grey;
 	transition: all 0.3s;
 	z-index: -1;
+	transform: scale(0);
 }
 
 section#portfolio ul li a.active:before,
 section#portfolio ul li a:hover:before {
-	top: 0;
+	transform: scale(1);
 }
 
 section#portfolio div.gallery {
@@ -398,6 +412,16 @@ html[dir="rtl"] section#mobile article {
 	padding-right: 0;
 }
 
+section#mobile article a {
+	text-decoration: none;
+	color: @color_green;
+	transition: color 0.3s;
+
+	&:hover {
+		color: @color_blue;
+	}
+}
+
 /**
  * Contact section
  */
@@ -426,12 +450,13 @@ section#contact form label {
 
 section#contact form label span {
 	display: block;
+	padding-bottom: 0.5em;
 }
 
 section#contact form label textarea,
 section#contact form label input {
 	display: block;
-	padding: 0.7em 0.2em;
+	padding: 0.5em 0.2em;
 	box-sizing: border-box;
 	border: 2px solid transparent;
 	width: 100%;
