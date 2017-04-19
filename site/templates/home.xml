@@ -138,14 +138,14 @@
 					/>
 
 				<div class="slider">
-					<a href="javascript:void(0)" class="previous"></a>
+					<a href="javascript:void(0)" class="previous"/>
 					<cms:module
 						name="gallery"
 						action="show_image_list"
 						group="clients"
 						template="parts/client_images.xml"
 						/>
-					<a href="javascript:void(0)" class="next"></a>
+					<a href="javascript:void(0)" class="next"/>
 				</div>
 			</section>
 

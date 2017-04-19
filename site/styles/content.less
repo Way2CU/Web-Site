@@ -2,76 +2,53 @@
  * Content Style Sheet
  * Way2CU Site
  *
- * Copyright (c) 2016. by Way2CU, http://way2cu.com
- * Authors:Tal Reznic
+ * Copyright (c) 2017. by Way2CU, http://way2cu.com
+ * Authors: Tal Reznic, Mladen Mijatov
  */
 
-section#about,
-section#mobile,
-section#portfolio,
-section#clients,
-section#services {
-	padding: 0 calc(~'(100% - 1200px)' / 2);
+section {
+	padding: 4rem calc(~'(100% - 1200px)' / 2);
 	text-align: center;
 	position: relative;
-}
 
-section#services {
-	padding-top: 270px;
-}
+	&#about {
+		padding: 4rem calc(~'(100% - 800px)' / 2);
+		background-color: @color_light_grey;
+	}
 
-section#contact,
-section#about,
-section#mobile,
-section#portfolio,
-section#clients {
-	padding: 4em calc(~'(100% - 1200px)' / 2);
-}
+	&#contact {
+		background-color: @color_dark_grey;
+		color: @color_background;
+		text-align: left;
 
-section#about {
-	padding: 4em calc(~'(100% - 800px)' / 2);
-}
+		html[dir=rtl] & {
+			text-align: right;
+		}
+	}
 
-section#about,
-section#portfolio {
-	background-color: @color_light_grey;
-}
+	&#services {
+		padding-top: 270px;
+	}
 
-section#contact {
-	background-color: @color_dark_grey;
-	color: @color_background;
-}
+	&#portfolio {
+		background-color: @color_light_grey;
+	}
 
-section#contact h2,
-section#about h2,
-section#mobile h2,
-section#portfolio h2,
-section#clients h2,
-section#services h2 {
-	margin: 0;
-	color: @color_blue;
-	text-align: center;
-}
+	h1, h2 {
+		margin: 0;
+		padding-bottom: 3rem;
+	}
 
-section#contact h2 {
-	color: @color_background;
-	padding-bottom: 1em;
-}
+	& h2 {
+		margin: 0;
 
-section#mobile h2 {
-	padding-bottom: 1em;
-}
+		color: @color_blue;
+		text-align: center;
+	}
 
-section#clients h2 {
-	margin-bottom: 0;
-}
-
-section#clients > p {
-	margin: 0;
-}
-
-section#about p:last-of-type {
-	margin-bottom: 0;
+	&#contact h2 {
+		color: @color_background;
+	}
 }
 
 section#services > img.logo {
@@ -80,69 +57,75 @@ section#services > img.logo {
 	left: 50%;
 	transform: translatex(-50%);
 	opacity: 1;
-}
 
-section#services > img.logo.floating {
-	position: fixed;
-	top: 90px;
-	opacity: 0;
+	&.floating {
+		position: fixed;
+		top: 90px;
+		opacity: 0;
+	}
 }
 
 section#services ul.features {
+	position: relative;
 	margin: 0;
 	padding: 0;
 	padding-top: 238px;
+
 	list-style-type: none;
+	list-style-image: none;
+
 	background-image: url(../images/lines.svg);
 	background-repeat: no-repeat;
 	background-position: center top;
 	background-size: 795px 242px;
-	position: relative;
 }
 
 section#services ul.features li {
 	display: inline-block;
+	width: 33%;
 	vertical-align: top;
 	padding: 0em 2em;
 	box-sizing: border-box;
+
 	background-color: @color_background;
-	width: 33.3%;
-}
 
-section#services ul.features li span {
-	display: inline-block;
-	padding: 2em;
-	margin-bottom: 0.5em;
-	border-radius: 50%;
-	border: 1px solid @color_bright_blue;
-	transition: all 0.3s;
-}
+	span {
+		display: inline-block;
+		padding: 2em;
+		margin-bottom: 0.5em;
+		border-radius: 50%;
+		border: 1px solid @color_bright_blue;
+		transition: all 0.3s;
+		transform: scale(1);
 
-section#services ul.features li:hover span {
-	border-color: @color_blue;
-}
+		svg {
+			display: block;
+			width: 3em;
+			height: 3em;
+			margin-left: auto;
+			margin-right: auto;
 
-section#services ul.features li span svg {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 3em;
-	height: 3em;
-	fill: @color_bright_blue;
-	transition: all 0.3s;
-}
+			fill: @color_bright_blue;
+			transition: all 0.3s;
+		}
+	}
 
-section#services ul.features li:hover span svg {
-	transform: scale(1.2);
-}
+	&:hover span {
+		border-color: @color_blue;
 
-section#services ul.features li h4 {
-	margin: 0;
-	color: @color_blue;
-}
+		svg {
+			transform: scale(1.2);
+		}
+	}
 
-section#services ul.features li p {
-	margin: 0;
+	h4 {
+		margin: 0;
+		color: @color_blue;
+	}
+
+	p {
+		margin: 0;
+	}
 }
 
 /**
@@ -154,70 +137,90 @@ section#clients div.slider {
 	height: 150px;
 	position: relative;
 	overflow: hidden;
-}
 
-section#clients div.slider a.image {
-	display: inline-block;
-	position: absolute;
-	top: 50%;
-	left: -100%;
-	transform :translatey(-50%);
-	transition: all 0.3s;
-}
+	a.image {
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		left: -100%;
+		transform: translateY(-50%);
+		transition: all 0.3s;
 
-html[dir="rtl"] section#clients div.slider a.image {
-	left: auto;
-	right: -100%;
-}
+		html[dir="rtl"] & {
+			left: auto;
+			right: -100%;
+		}
 
-section#portfolio div.gallery a.portfolio.transit,
-section#clients div.slider a.image.transit {
-	transition: none;
-}
+		&.transit {
+			transition: none;
+		}
+	}
 
-section#clients div.slider a.previous,
-section#clients div.slider a.next {
-	position: absolute;
-	top: 50%;
-	left: 1em;
-	width: 3em;
-	height: 3em;
-	transform: translatey(-50%);
-	z-index: 10;
-	transition: all 0.3s;
-}
+	a.next,
+	a.previous {
+		position: absolute;
+		top: 50%;
+		padding: 1em;
 
-section#clients div.slider a.next:before,
-section#clients div.slider a.previous:before {
-	content: "";
-	position: absolute;
-	top: 50%;
-	right: 1em;
-	width: 2em;
-	height: 2em;
-	border-top: 2px solid @color_bright_grey;
-	border-right: 2px solid @color_bright_grey;
-	transform: translatey(-50%) rotate(45deg);
-	transition: all 0.3s;
-}
+		color: @color_bright_grey;
 
-section#clients div.slider a.next:before {
-	border: none;
-	border-bottom: 2px solid @color_bright_grey;
-	border-left: 2px solid @color_bright_grey;
-	right: auto;
-	left: 1em;
-}
+		transform: translateY(-50%);
+		transition: all 0.3s;
+		z-index: 10;
 
-section#clients div.slider a.previous {
-	left: auto;
-	right: 1em;
-	border: none;
-}
+		&:before {
+			display: inline-block;
+			width: 2em;
+			height: 2em;
 
-section#clients div.slider a.previous:hover:before,
-section#clients div.slider a.next:hover:before {
-	border-color: @color_blue;
+			content: "";
+
+			border: 3px solid transparent;
+			border-top-color: currentColor;
+			border-right-color: currentColor;
+			transition: all 0.3s;
+		}
+
+		&:hover {
+			color: @color_blue;
+		}
+	}
+
+	a.next {
+		left: auto;
+		right: 1em;
+
+		html[dir=rtl] & {
+			left: 1em;
+			right: auto;
+		}
+
+		&:before {
+			transform: rotate(45deg);
+		}
+
+		html[dir=rtl] &:before {
+			transform: rotate(-135deg);
+		}
+	}
+
+	a.previous {
+		left: 1em;
+		right: auto;
+
+		html[dir=rtl] & {
+			left: auto;
+			right: 1em;
+		}
+
+		&:before {
+			transform: rotate(-135deg);
+		}
+
+		html[dir=rtl] &:before {
+			transform: rotate(45deg);
+		}
+	}
 }
 
 /**
@@ -225,30 +228,31 @@ section#clients div.slider a.next:hover:before {
  */
 section#portfolio ul {
 	margin: 0;
-	margin-top: 2em;
 	padding: 0;
 	list-style-type: none;
+	list-style-image: none;
 }
 
 section#portfolio ul li {
 	display: inline-block;
 	vertical-align: top;
-	line-height: 100%;
+	line-height: 1;
 	margin: 0em 1em;
 }
 
 section#portfolio ul li a {
-	display: block;
-	text-decoration: none;
-	padding: 1em 0em;
-	color: @color_text;
-	border: 1px solid @color_bright_grey;
-	width: 150px;
-	transition: all 0.3s;
 	position: relative;
-	overflow: hidden;
-	z-index: 0;
+	display: block;
+	padding: 1em 0em;
+	width: 150px;
+
+	border: 1px solid @color_bright_grey;
+	color: @color_text;
+	text-decoration: none;
+
 	transition: all 0.3s;
+	z-index: 0;
+	overflow: hidden;
 }
 
 section#portfolio ul li a.active,
@@ -257,31 +261,32 @@ section#portfolio ul li a:hover {
 }
 
 section#portfolio ul li a:before {
-	content: "";
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	width: 100%;
-	height: 100%;
+
+	content: "";
 	background-color: @color_bright_grey;
+
+	transform: scale(0);
 	transition: all 0.3s;
 	z-index: -1;
-	transform: scale(0);
-}
 
-section#portfolio ul li a.active:before,
-section#portfolio ul li a:hover:before {
-	transform: scale(1);
+	&.active:before,
+	&:hover:before {
+		transform: scale(1);
+	}
 }
 
 section#portfolio div.gallery {
-	margin-left: auto;
-	margin-right: auto;
+	position: relative;
 	width: 1200px;
 	height: 400px;
-	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+
 	overflow: hidden;
 }
 
@@ -292,104 +297,92 @@ section#portfolio div.gallery.loading:after {
 	left: 50%;
 	width: 100%;
 	height: 100%;
-	transform: translate(-50%, -50%);
+
 	background-image: url(../images/loading.gif);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-color: transparent;
+
+	transform: translate(-50%, -50%);
 }
 
 section#portfolio div.gallery a.portfolio {
 	position: absolute;
 	top: 50%;
-	transform: translatey(-50%);
-	text-decoration: none;
-	color: @color_text;
 	height: 350px;
+
 	box-shadow: 0px 0px 8px fade(@color_text, 20%);
+	transform: translateY(-50%);
+
+	color: @color_text;
+	text-decoration: none;
+
 	overflow: hidden;
-	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
 	transition: all 0.3s;
-}
 
-section#portfolio div.gallery a.portfolio:hover div.information {
-	background-color: @color_blue;
-	color: @color_background;
-}
+	&.visible {
+		opacity: 1;
+		pointer-events: auto;
+	}
 
-section#portfolio div.gallery a.portfolio.visible {
-	visibility: visible;
-}
-
-section#portfolio div.gallery a.portfolio div.information {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	padding: 1em 2em;
-	background-color: @color_background;
-	line-height: 100%;
-	transition: all 0.3s;
-}
-
-section#portfolio div.gallery a.portfolio div.information h4 {
-	margin: 0;
-	padding-bottom: 0.5em;
-}
-
-section#portfolio div.gallery a.portfolio div.information p {
-	margin: 0;
+	&.transit {
+		transition: none;
+	}
 }
 
 section#portfolio div.controls {
 	position: relative;
 	padding: 1em 0em;
-}
 
-section#portfolio div.controls span {
-	display: inline-block;
-	vertical-align: middle;
-}
+	& span {
+		display: inline-block;
+		vertical-align: middle;
+	}
 
-section#portfolio div.controls a.next,
-section#portfolio div.controls a.previous {
-	display: inline-block;
-	vertical-align: middle;
-	width: 3em;
-	height: 3em;
-	position: relative;
-}
+	a.next,
+	a.previous {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
 
-html[dir="rtl"] section#portfolio div.controls a.next,
-html[dir="rtl"] section#portfolio div.controls a.previous {
-	transform: rotate(180deg);
-}
+		width: 3em;
+		height: 3em;
 
-section#portfolio div.controls a.next:before,
-section#portfolio div.controls a.previous:before {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 0;
-	width: 2em;
-	height: 2em;
-	border-top: 2px solid @color_bright_grey;
-	border-right: 2px solid @color_bright_grey;
-	transform: translatey(-50%) rotate(45deg);
-	transition: all 0.3s;
-}
+		&:hover {
+			border-color: @color_blue;
+		}
 
-section#portfolio div.controls a.previous:before {
-	border: none;
-	border-bottom: 2px solid @color_bright_grey;
-	border-left: 2px solid @color_bright_grey;
-	left: auto;
-	right: 0;
-}
+		&:before {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 2em;
+			height: 2em;
+			content: "";
 
-section#portfolio div.controls a.next:hover,
-section#portfolio div.controls a.previous:hover {
-	border-color: @color_blue;
+			border: 2px solid transparent;
+			transform: translateY(-50%) rotate(45deg);
+			transition: all 0.3s;
+		}
+
+		html[dir=rtl] & {
+			transform: rotate(180deg);
+		}
+	}
+
+	a.next:before {
+		border-top-color: @color_bright_grey;
+		border-right-color: @color_bright_grey;
+	}
+
+	a.previous:before {
+		border-bottom-color: @color_bright_grey;
+		border-left-color: @color_bright_grey;
+		left: auto;
+		right: 0;
+	}
 }
 
 section#mobile article {
@@ -397,8 +390,8 @@ section#mobile article {
 	padding-left: 1em;
 	padding-right: 800px;
 	background-image:
-		url(../images/mobile-friendly-logo.svg),
-		url(../images/mobile-friendly.jpg);
+	url(../images/mobile-friendly-logo.svg),
+	url(../images/mobile-friendly.jpg);
 	background-repeat: no-repeat;
 	background-position: calc(~'50% - 400px') bottom, right top;
 	background-size: 250px 100px, 736px 481px;
@@ -545,34 +538,34 @@ section#contact div.contact a.social:hover svg {
  */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 
-section#contact,
-section#about,
-section#mobile,
-section#portfolio,
-section#clients {
-	padding: 4em calc(~'(100% - 900px)' / 2);
-}
+	section#contact,
+	section#about,
+	section#mobile,
+	section#portfolio,
+	section#clients {
+		padding: 4em calc(~'(100% - 900px)' / 2);
+	}
 
-section#portfolio div.gallery {
-	width: auto;
-}
+	section#portfolio div.gallery {
+		width: auto;
+	}
 
-section#portfolio div.gallery a.portfolio {
-	width: 250px;
-	height: 280px;
-}
+	section#portfolio div.gallery a.portfolio {
+		width: 250px;
+		height: 280px;
+	}
 
-section#portfolio div.gallery a.portfolio img {
-	display: block;
-	width: 100%;
-	height: auto;
-}
+	section#portfolio div.gallery a.portfolio img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
 
-section#mobile article {
-	padding-right: 0;
-	padding-top: 480px;
-	background-position: center bottom, center top;
-	min-height: 350px;
-}
+	section#mobile article {
+		padding-right: 0;
+		padding-top: 480px;
+		background-position: center bottom, center top;
+		min-height: 350px;
+	}
 
 }

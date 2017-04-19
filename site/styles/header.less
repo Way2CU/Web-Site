@@ -7,18 +7,21 @@
  */
 
 header {
-	text-align: center;
+	position: relative;
+	min-height: 700px;
+	height: 100vh;
+
 	background-image: url(../images/header-background.jpg);
 	background-repeat: no-repeat;
 	background-position: center top;
-	background-size: 1920px 1080px;
-	min-height: 1080px;
+
 	color: @color_background;
-	position: relative;
+	text-align: center;
 }
 
 header nav a {
 	display: inline-block;
+	vertical-align: top;
 	padding: 1em 2em;
 	position: relative;
 
@@ -30,8 +33,6 @@ header nav a {
 	z-index: 0;
 
 	&:hover {
-		border-top-color: @color_background;
-		border-bottom-color: @color_background;
 		color: @color_blue;
 	}
 
@@ -44,7 +45,7 @@ header nav a {
 		right: 0;
 
 		background-color: @color_background;
-		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+		box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
 
 		transition: transform 0.3s;
 		transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
@@ -64,19 +65,24 @@ header nav.languages {
 	padding-left: 5px;
 
 	border-left: 1px solid fade(@color_background, 20);
-}
 
-header nav.languages a {
-	display: block;
-	padding: 0.3em 2em;
-
-	&:before {
-		transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
-		transform-origin: 50% 50%;
+	html[dir=rtl] & {
+		border-left: 0;
+		border-right: 1px solid fade(@color_background, 20);
 	}
 
-	&:hover:before {
-		transform: perspective(1000px) rotate3d(0, 0, 0, -90deg);
+	a {
+		display: block;
+		padding: 0.3em 2em;
+
+		&:before {
+			transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
+			transform-origin: 50% 50%;
+		}
+
+		&:hover:before {
+			transform: perspective(1000px) rotate3d(0, 0, 0, -90deg);
+		}
 	}
 }
 
@@ -84,98 +90,95 @@ header > img.logo {
 	position: absolute;
 	top: 90px;
 	left: 50%;
-	transform: translatex(-50%);
-}
+	transform: translateX(-50%);
 
-header > img.logo.floating {
-	position: fixed;
+	&.floating {
+		position: fixed;
+	}
 }
 
 header article {
 	padding-top: 300px;
-	margin-bottom: 2em;
+	margin-bottom: 3rem;
 	position: relative;
+	text-shadow: 1px 1px 2px fade(@color_text, 50);
 }
 
-header article h2 {
-	margin: 0;
-	font-weight: 400;
-	font-size: 3em;
-	text-shadow: 1px 1px 3px fade(@color_text, 80%);
-}
-
+// points of interest
 header > a {
+	position: relative;
 	display: inline-block;
 	vertical-align: top;
-	margin: 0em 2em;
-	padding: 1.5em 0em;
-	text-decoration: none;
-	color: @color_background;
+	min-width: 200px;
+	margin: 0 2em;
+	padding: 1.5em 0;
+
 	border: 1px solid @color_background;
-	text-shadow: 1px 1px 3px fade(@color_text, 80%);
-	background-color: fade(@color_text, 20%);
+	background-color: fade(@color_text, 20);
+
+	color: @color_background;
+	text-decoration: none;
+	text-shadow: 1px 1px 2px fade(@color_text, 50);
 	font-weight: 700;
-	position: relative;
+	line-height: 1;
+
 	overflow: hidden;
 	transition: all 0.3s;
-	line-height: 100%;
-	width: 200px;
 	z-index: 0;
-}
 
-header > a.callbox {
-	display: inline-block;
-	vertical-align: middle;
-	text-transform: uppercase;
-	padding: 0;
-}
+	&.callbox {
+		display: inline-block;
+		vertical-align: middle;
+		padding: 0.5em 0;
 
-header > a.callbox img {
-	display: inline-block;
-	vertical-align: middle;
-	padding: 0.45em 0.2em;
-	width: 50px;
-	height: 50px;
-}
+		img {
+			vertical-align: middle;
+			width: 3em;
+			height: 3em;
+			margin-right: 0.5em;
 
-header > a:hover {
-	color: @color_blue;
-	text-shadow: none;
-}
+			html[dir=rtl] & {
+				margin-right: 0;
+				margin-left: 0.5em;
+			}
+		}
+	}
 
-header > a:before {
-	content: "";
-	position: absolute;
-	top: -100%;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: @color_background;
-	transition: all 0.3s;
-	z-index: -1;
-}
+	&:hover {
+		color: @color_blue;
+		text-shadow: none;
+	}
 
-header > a:hover:before {
-	top: 0;
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+
+		background-color: @color_background;
+		transition: all 0.3s;
+		transform: translateY(-100%);
+		z-index: -1;
+	}
+
+	&:hover:before {
+		transform: translateY(0);
+	}
 }
 
 header span.arrow {
 	position: absolute;
-	bottom: 15em;
+	bottom: 3rem;
 	left: 50%;
-	transform: translatex(-50%) translatez(0);
-	animation: bounce .6s infinite;
+	animation: bounce 1s infinite;
 	animation-direction: alternate;
 	animation-timing-function: ease-in-out;
-}
 
-header span.arrow img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-@keyframes bounce {
-	from{bottom: 15em}
-	to{bottom: 16em}
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
