@@ -11,6 +11,10 @@
 @import "content_mobile.less";
 @import "footer_mobile.less";
 @import (css)'stock/copyright.css';
+@import (reference) 'common.less';
+@import (reference) 'stock/functions.less';
+@import 'fonts.less';
+@import (css) 'stock/copyright_mobile.css';
 
 body {
 	background-color: @color_background;
@@ -33,4 +37,13 @@ h4,
 h5 {
 	font-weight: 400;
 	font-family: 'Expletus Sans', cursive;
+	margin: 0;
+	margin-bottom: @header_spacing;
+	padding: 0;
+}
+
+p {
+	margin: 0;
+	margin-bottom: @paragraph_spacing;
+	padding: 0;
 }
