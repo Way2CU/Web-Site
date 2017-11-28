@@ -28,7 +28,7 @@
 							<cms:text constant="menu_contact"/>
 						</a>
 
-						<nav class="languages">
+						<nav id="languages">
 							<cms:module
 								name="language_menu"
 								action="print"
@@ -39,7 +39,7 @@
 				</cms:desktop>
 
 				<cms:mobile>
-					<nav class="languages">
+					<nav id="languages">
 						<cms:module
 							name="language_menu"
 							action="print"

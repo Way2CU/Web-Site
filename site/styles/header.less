@@ -3,7 +3,7 @@
  * Way2CU Site
  *
  * Copyright (c) 2017. by Way2CU, http://way2cu.com
- * Authors: Tal Reznic, Mladen Miajtov
+ * Authors: Tal Reznic, Mladen Mijatov
  */
 
 header {
@@ -17,169 +17,171 @@ header {
 	color: @color_background;
 	text-align: center;
 
+	// main navigation
 	> nav {
 		padding-top: 1rem;
-	}
-}
 
-header nav a {
-	display: inline-block;
-	vertical-align: top;
-	padding: 1em 2em;
-	position: relative;
+		a {
+			display: inline-block;
+			vertical-align: top;
+			padding: 1em 2em;
+			position: relative;
 
-	color: @color_background;
-	text-decoration: none;
-	line-height: 100%;
+			color: @color_background;
+			text-decoration: none;
+			line-height: 100%;
 
-	transition: all 0.3s;
-	z-index: 0;
+			transition: all 0.3s;
+			z-index: 0;
 
-	&:hover {
-		color: @color_blue;
-	}
+			&:hover {
+				color: @color_blue;
+			}
 
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
 
-		background-color: @color_background;
-		box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+				background-color: @color_background;
+				box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
 
-		transition: transform 0.3s;
-		transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
-		transform-origin: 50% 0;
-		z-index: -1;
-	}
+				transition: transform 0.3s;
+				transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
+				transform-origin: 50% 0;
+				z-index: -1;
+			}
 
-	&:hover:before {
-		transform: perspective(1000px) rotate3d(0, 0, 0, -90deg);
-	}
-}
-
-header nav.languages {
-	display: inline-block;
-	vertical-align: top;
-	margin-left: 5px;
-
-	border-left: 1px solid fade(@color_background, 20);
-
-	html[dir=rtl] & {
-		border-left: 0;
-		border-right: 1px solid fade(@color_background, 20);
-	}
-
-	a {
-		display: inline-block;
-
-		&:before {
-			transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
-			transform-origin: 50% 50%;
-		}
-
-		&:hover:before {
-			transform: perspective(1000px) rotate3d(0, 0, 0, -90deg);
-		}
-	}
-}
-
-header > svg {
-	position: absolute;
-	top: 90px;
-	left: 50%;
-	transform: translateX(-50%);
-
-	&.floating {
-		position: fixed;
-	}
-}
-
-header article {
-	padding-top: 300px;
-	margin-bottom: 3rem;
-	position: relative;
-	text-shadow: 1px 1px 2px fade(@color_text, 50);
-}
-
-// points of interest
-header > a {
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
-	min-width: 200px;
-	margin: 0 2em;
-	padding: 1.5em 0;
-
-	border: 1px solid @color_background;
-	background-color: fade(@color_text, 20);
-
-	color: @color_background;
-	text-decoration: none;
-	text-shadow: 1px 1px 2px fade(@color_text, 50);
-	font-weight: 700;
-	line-height: 1;
-
-	overflow: hidden;
-	transition: all 0.3s;
-	z-index: 0;
-
-	&.callbox {
-		display: inline-block;
-		vertical-align: middle;
-		padding: 0.5em 0;
-
-		svg {
-			vertical-align: middle;
-			width: 3em;
-			height: 3em;
-			margin-right: 0.5em;
-
-			html[dir=rtl] & {
-				margin-right: 0;
-				margin-left: 0.5em;
+			&:hover:before {
+				transform: perspective(1000px) rotate3d(0, 0, 0, -90deg);
 			}
 		}
 	}
 
-	&:hover {
-		color: @color_blue;
-		text-shadow: none;
+	nav#languages {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 5px;
+
+		border-left: 1px solid fade(@color_background, 20);
+
+		html[dir=rtl] & {
+			border-left: 0;
+			border-right: 1px solid fade(@color_background, 20);
+		}
+
+		a {
+			display: inline-block;
+
+			&:before {
+				transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
+				transform-origin: 50% 50%;
+			}
+
+			&:hover:before {
+				transform: perspective(1000px) rotate3d(0, 0, 0, -90deg);
+			}
+		}
 	}
 
-	&:before {
-		content: "";
+	// black logo
+	> svg {
 		position: absolute;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
+		top: 90px;
+		left: 50%;
+		transform: translateX(-50%);
 
-		background-color: @color_background;
+		&.floating {
+			position: fixed;
+		}
+	}
+
+	article {
+		padding-top: 300px;
+		margin-bottom: 3rem;
+		position: relative;
+		text-shadow: 1px 1px 2px fade(@color_text, 50);
+	}
+
+	> a {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		min-width: 200px;
+		margin: 0 2em;
+		padding: 1.5em 0;
+
+		border: 1px solid @color_background;
+		background-color: fade(@color_text, 20);
+
+		color: @color_background;
+		text-decoration: none;
+		text-shadow: 1px 1px 2px fade(@color_text, 50);
+		font-weight: 700;
+		line-height: 1;
+
+		overflow: hidden;
 		transition: all 0.3s;
-		transform: translateY(-100%);
-		z-index: -1;
+		z-index: 0;
+
+		&.callbox {
+			display: inline-block;
+			vertical-align: middle;
+			padding: 0.5em 0;
+
+			svg {
+				vertical-align: middle;
+				width: 3em;
+				height: 3em;
+				margin-right: 0.5em;
+
+				html[dir=rtl] & {
+					margin-right: 0;
+					margin-left: 0.5em;
+				}
+			}
+		}
+
+		&:hover {
+			color: @color_blue;
+			text-shadow: none;
+		}
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+
+			background-color: @color_background;
+			transition: all 0.3s;
+			transform: translateY(-100%);
+			z-index: -1;
+		}
+
+		&:hover:before {
+			transform: translateY(0);
+		}
 	}
 
-	&:hover:before {
-		transform: translateY(0);
-	}
-}
+	// animated arrow
+	span.arrow {
+		position: absolute;
+		bottom: 3rem;
+		left: 50%;
+		animation: bounce 1s infinite;
+		animation-direction: alternate;
+		animation-timing-function: ease-in-out;
 
-header span.arrow {
-	position: absolute;
-	bottom: 3rem;
-	left: 50%;
-	animation: bounce 1s infinite;
-	animation-direction: alternate;
-	animation-timing-function: ease-in-out;
-
-	svg {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
+		svg {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 }
