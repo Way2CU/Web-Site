@@ -47,14 +47,7 @@
 							/>
 					</nav>
 				</cms:mobile>
-
-				<img
-					src="_BASEURL.'/site/images/logo-black.svg'"
-					alt="site_title"
-					class="logo"
-					cms:eval="src"
-					cms:constant="alt"
-					/>
+				<cms:svg file="logo-black.svg"/>
 
 				<!-- Introduction articles -->
 				<cms:module
@@ -71,12 +64,7 @@
 				</a>
 
 				<a href="callbox" class="callbox" cms:constant="href">
-					<img
-						src="_BASEURL.'/site/images/callbox-icon.svg'"
-						alt="callbox_title"
-						cms:eval="src"
-						cms:constant="alt"
-						/>
+					<cms:svg file="callbox-icon.svg"/>
 					<cms:text constant="label_callbox"/>
 				</a>
 
@@ -87,26 +75,15 @@
 				<!-- Down pointing arrow -->
 				<cms:desktop>
 					<span class="arrow">
-						<cms:text constant="label_scroll"/>
-						<img
-							src="_BASEURL.'/site/images/icon-arrow.svg'"
-							alt="arrow_down"
-							cms:eval="src"
-							/>
+						<p><cms:text constant="label_scroll"/></p>
+						<cms:svg file="icon-arrow.svg"/>
 					</span>
 				</cms:desktop>
 			</header>
 
 			<!-- Services section -->
 			<section id="services">
-				<img
-					src="_BASEURL.'/site/images/logo-color.svg'"
-					alt="site_title"
-					class="logo"
-					cms:eval="src"
-					cms:constant="alt"
-					/>
-
+				<cms:svg file="logo-color.svg"/>
 				<cms:module
 					name="articles"
 					action="show_group"

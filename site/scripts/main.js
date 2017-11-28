@@ -92,8 +92,8 @@ Site.on_load = function() {
 		.images.update();
 
 	if (!Site.is_mobile()) {
-		Site.logo_black = document.querySelector('img.logo');
-		Site.logo_color = document.querySelector('section#services img.logo');
+		Site.logo_black = document.querySelector('header > svg');
+		Site.logo_color = document.querySelector('section#services > svg');
 
 		Site.max_size = Site.logo_color.getBoundingClientRect().top;
 		Site.logo_black.classList.add('floating');
