@@ -540,7 +540,7 @@ section#contact div.contact a.social:hover svg {
 /**
  * Tablet version
  */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (max-device-width: 1200px) {
 
 	section#contact,
 	section#about,
@@ -572,4 +572,42 @@ section#contact div.contact a.social:hover svg {
 		min-height: 350px;
 	}
 
+	section#clients {
+
+		padding: @section_spacing calc(~'(100% - 840px) / 2');
+
+		div.slider {
+
+			a.previous {
+				left: -2rem;
+
+				html[dir=rtl] & {
+					left: auto;
+					right: -2rem;
+				}
+			}
+
+			a.next {
+				right: -2rem;
+
+				html[dir=rtl] & {
+					right: auto;
+					left: -2rem;
+				}
+			}
+
+			a.previous:active,
+			a.next:active {
+				color: @color_blue;
+			}
+
+			a {
+				width: 15%;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
 }
