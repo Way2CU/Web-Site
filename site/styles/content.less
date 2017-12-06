@@ -181,6 +181,7 @@ section#clients div.slider {
 			transition: all 0.3s;
 		}
 
+		&:active,
 		&:hover {
 			color: @color_blue;
 		}
@@ -578,30 +579,12 @@ section#contact div.contact a.social:hover svg {
 
 		div.slider {
 
-			a.previous {
-				left: -2rem;
-
-				html[dir=rtl] & {
-					left: auto;
-					right: -2rem;
-				}
-			}
-
-			a.next {
-				right: -2rem;
-
-				html[dir=rtl] & {
-					right: auto;
-					left: -2rem;
-				}
-			}
-
 			a.previous:active,
 			a.next:active {
 				color: @color_blue;
 			}
 
-			a {
+			a.stock {
 				width: 15%;
 
 				img {
