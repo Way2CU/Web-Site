@@ -71,7 +71,7 @@ Site.on_load = function() {
 	Site.client_gallery
 		.controls.attach_next('div.slider a.next')
 		.controls.attach_previous('div.slider a.previous')
-		.controls.set_auto(3000)
+		.controls.set_auto(4000)
 		.images.set_container(' div.slider')
 		.images.add('div.slider a.image')
 		.images.set_visible_count(5)

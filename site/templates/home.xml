@@ -120,8 +120,10 @@
 						name="gallery"
 						action="show_image_list"
 						group="clients"
-						template="parts/client_images.xml"
-						/>
+						template="stock/image_generic.xml"
+						>
+						<param name="thumbnail_size" value="180"/>
+					</cms:module>
 					<a href="javascript:void(0)" class="next"/>
 				</div>
 			</section>
