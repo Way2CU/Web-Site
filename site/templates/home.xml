@@ -130,13 +130,9 @@
 
 			<!-- Portfolio section -->
 			<section id="portfolio">
-				<cms:module
-					name="gallery"
-					action="show_container"
-					text_id="way2cu_galleries"
-					template="parts/gallery_group.xml"
-					/>
+				<h2><cms:text constant="portfolio_title"/></h2>
 
+				<!-- images categories -->
 				<ul>
 					<cms:module
 						name="gallery"
@@ -146,13 +142,8 @@
 						/>
 				</ul>
 
+				<!-- images container -->
 				<div class="gallery">
-					<cms:module
-						name="gallery"
-						action="show_image_list"
-						group="websites"
-						template="parts/gallery_image.xml"
-						/>
 				</div>
 
 				<div class="controls">

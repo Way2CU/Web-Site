@@ -60,36 +60,60 @@ Site.handle_scroll = function(event) {
 	} else {
 		Site.logo_color.style.opacity = window.scrollY / Site.max_size;
 	}
-}
+};
 
 /**
  * Function called when document and images have been completely loaded.
  */
 Site.on_load = function() {
 	// create slider for clients gallery
-	Site.client_gallery = new Caracal.Gallery.Slider();
+	Site.client_gallery = new Caracal.Gallery.Slider(5, false);
 	Site.client_gallery
 		.controls.attach_next('div.slider a.next')
 		.controls.attach_previous('div.slider a.previous')
 		.controls.set_auto(4000)
 		.images.set_container(' div.slider')
 		.images.add('div.slider a.image')
-		.images.set_visible_count(5)
 		.images.set_center(true)
 		.images.set_spacing(20)
 		.images.update();
 
 	// create slider for portfolio gallery
-	Site.portfolio_gallery = new Caracal.Gallery.Slider();
+	Site.portfolio_gallery = new Caracal.Gallery.Slider(3, false);
 	Site.portfolio_gallery
-		.controls.attach_next('div.controls a.next')
-		.controls.attach_previous('div.controls a.previous')
-		.images.set_container(' div.gallery')
-		.images.add('div.gallery a.portfolio')
-		.images.set_visible_count(3)
+		.images.set_container('div.gallery')
+		.images.add('div.gallery a.image')
 		.images.set_center(true)
 		.images.set_spacing(20)
+		.controls.attach_next('div.controls a.next')
+		.controls.attach_previous('div.controls a.previous')
 		.images.update();
+
+	// use this constructor to crate image
+	Caracal.Gallery.create_image = function(data) {
+		var link = $('<a>');
+		link
+			.addClass('image')
+			.data('id', data.id)
+			.attr('href', data.image);
+
+		var thumbnail = $('<img>').appendTo(link);
+		thumbnail
+			.attr('src', data.thumbnail)
+			.attr('alt', data.title)
+			.css('width', '350px');
+
+		return link;
+	};
+
+	// create gallery loader
+	Site.gallery_loader = new Caracal.Gallery.Loader();
+	Site.gallery_loader
+		.add_gallery(Site.portfolio_gallery)
+		.set_thumbnail_size(350 ,Caracal.Gallery.Constraint.HEIGHT)
+		.load_by_group_text_id('websites')
+		.set_constructor(Caracal.Gallery.create_image);
+
 
 	if (!Site.is_mobile()) {
 		Site.logo_black = document.querySelector('header > svg');
@@ -108,11 +132,9 @@ Site.on_load = function() {
 		Site.portfolio_gallery.images.set_visible_count(1);
 	}
 
-	// create gallery loader
-	Site.gallery_loader = new Caracal.Gallery.Loader();
-	Site.gallery_loader
-			.add_gallery(Site.portfolio_gallery)
-			.set_thumbnail_size(350 ,Caracal.Gallery.Constraint.HEIGHT);
+	// set active class on active gallery link
+	var active_link = $("[data-gallery='3']");
+	active_link.addClass('active');
 
 	// create click event for loading gallery loader
 	var gallery_list = $('section#portfolio ul li a');
@@ -121,11 +143,12 @@ Site.on_load = function() {
 
 		// find gallery id
 		var item = $(this);
-		var gallery_id = item.data('gallery');
 
-		// highlight current gallery
-		gallery_list.not(item).removeClass('active')
+		// set active class on active link
+		gallery_list.not(item).removeClass('active');
 		item.addClass('active');
+
+		var gallery_id = item.data('gallery');
 
 		Site.gallery_loader.load_by_group_id(gallery_id);
 	});

@@ -1,7 +1,7 @@
 <document>
 	<li>
 		<a
-			href="javascript:void(0)" 
+			href="javascript:void(0)"
 			data-gallery="$params['id']"
 			cms:eval="data-gallery"
 			>

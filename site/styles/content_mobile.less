@@ -196,6 +196,7 @@ section#clients div.slider a.next:active {
 section#portfolio ul {
 	margin: 0;
 	padding: 0;
+	padding-bottom: 2rem;
 	list-style-type: none;
 }
 
@@ -235,6 +236,7 @@ section#portfolio div.gallery {
 	height: 400px;
 	position: relative;
 	overflow: hidden;
+	text-align: center;
 }
 
 section#portfolio div.gallery.loading:after {
@@ -251,21 +253,21 @@ section#portfolio div.gallery.loading:after {
 	background-color: transparent;
 }
 
-section#portfolio div.gallery a.portfolio {
+section#portfolio div.gallery a.image {
 	position: absolute;
 	top: 50%;
 	transform: translatey(-50%);
 	text-decoration: none;
 	color: @color_text;
+	opacity: 0;
 	height: 350px;
 	box-shadow: 0px 0px 8px fade(@color_text, 20%);
 	overflow: hidden;
-	visibility: hidden;
 	transition: all 0.3s;
-}
 
-section#portfolio div.gallery a.portfolio.visible {
-	visibility: visible;
+	&.visible {
+		opacity: 1;
+	}
 }
 
 section#portfolio div.gallery a.portfolio div.information {
